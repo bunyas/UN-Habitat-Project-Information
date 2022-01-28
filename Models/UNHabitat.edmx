@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UNHabitat_ProjectsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="A_ApprovalStatus">
+          <Key>
+            <PropertyRef Name="ApprovalStatusID" />
+          </Key>
+          <Property Name="ApprovalStatusID" Type="int" Nullable="false" />
+          <Property Name="ApprovalStatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="A_Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="A_Donor">
+          <Key>
+            <PropertyRef Name="DonorID" />
+          </Key>
+          <Property Name="DonorID" Type="int" Nullable="false" />
+          <Property Name="Donor" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="A_Fund">
+          <Key>
+            <PropertyRef Name="FundID" />
+          </Key>
+          <Property Name="FundID" Type="int" Nullable="false" />
+          <Property Name="Fund" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="A_LeadOrgUnit">
+          <Key>
+            <PropertyRef Name="LeadOrgUnitID" />
+          </Key>
+          <Property Name="LeadOrgUnitID" Type="int" Nullable="false" />
+          <Property Name="LeadOrgUnit" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="A_Theme">
+          <Key>
+            <PropertyRef Name="ThemeID" />
+          </Key>
+          <Property Name="ThemeID" Type="int" Nullable="false" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="UNHabitatProjects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="ProjectTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="PAASCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ApprovalStatusID" Type="int" />
+          <Property Name="FundID" Type="int" />
+          <Property Name="PAGValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Country" Type="nvarchar" MaxLength="500" />
+          <Property Name="LeadOrgUnitID" Type="int" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="500" />
+          <Property Name="Donor" Type="nvarchar" MaxLength="500" />
+          <Property Name="TotalExpenditure" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalContribution" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalContribution_TotalExpenditure" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalPSC" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeletedRecord" Type="int" />
+          <Property Name="AddedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="DateAdded" Type="datetime" />
+          <Property Name="DateEdited" Type="datetime" />
+          <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="DateDeleted" Type="datetime" />
+          <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <Association Name="FK_UNHabitatProjects_A_ApprovalStatus">
+          <End Role="A_ApprovalStatus" Type="Self.A_ApprovalStatus" Multiplicity="0..1" />
+          <End Role="UNHabitatProjects" Type="Self.UNHabitatProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_ApprovalStatus">
+              <PropertyRef Name="ApprovalStatusID" />
+            </Principal>
+            <Dependent Role="UNHabitatProjects">
+              <PropertyRef Name="ApprovalStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNHabitatProjects_A_Fund">
+          <End Role="A_Fund" Type="Self.A_Fund" Multiplicity="0..1" />
+          <End Role="UNHabitatProjects" Type="Self.UNHabitatProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_Fund">
+              <PropertyRef Name="FundID" />
+            </Principal>
+            <Dependent Role="UNHabitatProjects">
+              <PropertyRef Name="FundID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNHabitatProjects_A_LeadOrgUnit">
+          <End Role="A_LeadOrgUnit" Type="Self.A_LeadOrgUnit" Multiplicity="0..1" />
+          <End Role="UNHabitatProjects" Type="Self.UNHabitatProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_LeadOrgUnit">
+              <PropertyRef Name="LeadOrgUnitID" />
+            </Principal>
+            <Dependent Role="UNHabitatProjects">
+              <PropertyRef Name="LeadOrgUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UNHabitat_ProjectsModelStoreContainer">
+          <EntitySet Name="A_ApprovalStatus" EntityType="Self.A_ApprovalStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_Country" EntityType="Self.A_Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_Donor" EntityType="Self.A_Donor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_Fund" EntityType="Self.A_Fund" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_LeadOrgUnit" EntityType="Self.A_LeadOrgUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="A_Theme" EntityType="Self.A_Theme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UNHabitatProjects" EntityType="Self.UNHabitatProjects" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_UNHabitatProjects_A_ApprovalStatus" Association="Self.FK_UNHabitatProjects_A_ApprovalStatus">
+            <End Role="A_ApprovalStatus" EntitySet="A_ApprovalStatus" />
+            <End Role="UNHabitatProjects" EntitySet="UNHabitatProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNHabitatProjects_A_Fund" Association="Self.FK_UNHabitatProjects_A_Fund">
+            <End Role="A_Fund" EntitySet="A_Fund" />
+            <End Role="UNHabitatProjects" EntitySet="UNHabitatProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNHabitatProjects_A_LeadOrgUnit" Association="Self.FK_UNHabitatProjects_A_LeadOrgUnit">
+            <End Role="A_LeadOrgUnit" EntitySet="A_LeadOrgUnit" />
+            <End Role="UNHabitatProjects" EntitySet="UNHabitatProjects" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UNHabitat_ProjectsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="A_ApprovalStatus">
+          <Key>
+            <PropertyRef Name="ApprovalStatusID" />
+          </Key>
+          <Property Name="ApprovalStatusID" Type="Int32" Nullable="false" />
+          <Property Name="ApprovalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UNHabitatProjects" Relationship="Self.FK_UNHabitatProjects_A_ApprovalStatus" FromRole="A_ApprovalStatus" ToRole="UNHabitatProjects" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        </EntityType>
+        <EntityType Name="A_Country">
+          <Key>
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Name="CountryID" Type="Int32" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="A_Donor">
+          <Key>
+            <PropertyRef Name="DonorID" />
+          </Key>
+          <Property Name="DonorID" Type="Int32" Nullable="false" />
+          <Property Name="Donor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="A_Fund">
+          <Key>
+            <PropertyRef Name="FundID" />
+          </Key>
+          <Property Name="FundID" Type="Int32" Nullable="false" />
+          <Property Name="Fund" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UNHabitatProjects" Relationship="Self.FK_UNHabitatProjects_A_Fund" FromRole="A_Fund" ToRole="UNHabitatProjects" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        </EntityType>
+        <EntityType Name="A_LeadOrgUnit">
+          <Key>
+            <PropertyRef Name="LeadOrgUnitID" />
+          </Key>
+          <Property Name="LeadOrgUnitID" Type="Int32" Nullable="false" />
+          <Property Name="LeadOrgUnit" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UNHabitatProjects" Relationship="Self.FK_UNHabitatProjects_A_LeadOrgUnit" FromRole="A_LeadOrgUnit" ToRole="UNHabitatProjects" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        </EntityType>
+        <EntityType Name="A_Theme">
+          <Key>
+            <PropertyRef Name="ThemeID" />
+          </Key>
+          <Property Name="ThemeID" Type="Int32" Nullable="false" />
+          <Property Name="Theme" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UNHabitatProject">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="ProjectTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PAASCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovalStatusID" Type="Int32" />
+          <Property Name="FundID" Type="Int32" />
+          <Property Name="PAGValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Country" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LeadOrgUnitID" Type="Int32" />
+          <Property Name="Theme" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Donor" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TotalExpenditure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalContribution" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalContribution_TotalExpenditure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalPSC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="A_ApprovalStatus" Relationship="Self.FK_UNHabitatProjects_A_ApprovalStatus" FromRole="UNHabitatProjects" ToRole="A_ApprovalStatus" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="A_Fund" Relationship="Self.FK_UNHabitatProjects_A_Fund" FromRole="UNHabitatProjects" ToRole="A_Fund" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <NavigationProperty Name="A_LeadOrgUnit" Relationship="Self.FK_UNHabitatProjects_A_LeadOrgUnit" FromRole="UNHabitatProjects" ToRole="A_LeadOrgUnit" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+          <Property Name="DeletedRecord" Type="Int32" />
+          <Property Name="AddedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DateAdded" Type="DateTime" Precision="3" />
+          <Property Name="DateEdited" Type="DateTime" Precision="3" />
+          <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DateDeleted" Type="DateTime" Precision="3" />
+          <Property Name="DeletedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_UNHabitatProjects_A_ApprovalStatus">
+          <End Role="A_ApprovalStatus" Type="Self.A_ApprovalStatus" Multiplicity="0..1" />
+          <End Role="UNHabitatProjects" Type="Self.UNHabitatProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_ApprovalStatus">
+              <PropertyRef Name="ApprovalStatusID" />
+            </Principal>
+            <Dependent Role="UNHabitatProjects">
+              <PropertyRef Name="ApprovalStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNHabitatProjects_A_Fund">
+          <End Role="A_Fund" Type="Self.A_Fund" Multiplicity="0..1" />
+          <End Role="UNHabitatProjects" Type="Self.UNHabitatProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_Fund">
+              <PropertyRef Name="FundID" />
+            </Principal>
+            <Dependent Role="UNHabitatProjects">
+              <PropertyRef Name="FundID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UNHabitatProjects_A_LeadOrgUnit">
+          <End Role="A_LeadOrgUnit" Type="Self.A_LeadOrgUnit" Multiplicity="0..1" />
+          <End Role="UNHabitatProjects" Type="Self.UNHabitatProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A_LeadOrgUnit">
+              <PropertyRef Name="LeadOrgUnitID" />
+            </Principal>
+            <Dependent Role="UNHabitatProjects">
+              <PropertyRef Name="LeadOrgUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UNHabitat_ProjectsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="A_ApprovalStatus" EntityType="Self.A_ApprovalStatus" />
+          <EntitySet Name="A_Country" EntityType="Self.A_Country" />
+          <EntitySet Name="A_Donor" EntityType="Self.A_Donor" />
+          <EntitySet Name="A_Fund" EntityType="Self.A_Fund" />
+          <EntitySet Name="A_LeadOrgUnit" EntityType="Self.A_LeadOrgUnit" />
+          <EntitySet Name="A_Theme" EntityType="Self.A_Theme" />
+          <EntitySet Name="UNHabitatProjects" EntityType="Self.UNHabitatProject" />
+          <AssociationSet Name="FK_UNHabitatProjects_A_ApprovalStatus" Association="Self.FK_UNHabitatProjects_A_ApprovalStatus">
+            <End Role="A_ApprovalStatus" EntitySet="A_ApprovalStatus" />
+            <End Role="UNHabitatProjects" EntitySet="UNHabitatProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNHabitatProjects_A_Fund" Association="Self.FK_UNHabitatProjects_A_Fund">
+            <End Role="A_Fund" EntitySet="A_Fund" />
+            <End Role="UNHabitatProjects" EntitySet="UNHabitatProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UNHabitatProjects_A_LeadOrgUnit" Association="Self.FK_UNHabitatProjects_A_LeadOrgUnit">
+            <End Role="A_LeadOrgUnit" EntitySet="A_LeadOrgUnit" />
+            <End Role="UNHabitatProjects" EntitySet="UNHabitatProjects" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UNHabitat_ProjectsModelStoreContainer" CdmEntityContainer="UNHabitat_ProjectsEntities">
+          <EntitySetMapping Name="A_ApprovalStatus">
+            <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.A_ApprovalStatus">
+              <MappingFragment StoreEntitySet="A_ApprovalStatus">
+                <ScalarProperty Name="ApprovalStatusID" ColumnName="ApprovalStatusID" />
+                <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_Country">
+            <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.A_Country">
+              <MappingFragment StoreEntitySet="A_Country">
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_Donor">
+            <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.A_Donor">
+              <MappingFragment StoreEntitySet="A_Donor">
+                <ScalarProperty Name="DonorID" ColumnName="DonorID" />
+                <ScalarProperty Name="Donor" ColumnName="Donor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_Fund">
+            <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.A_Fund">
+              <MappingFragment StoreEntitySet="A_Fund">
+                <ScalarProperty Name="FundID" ColumnName="FundID" />
+                <ScalarProperty Name="Fund" ColumnName="Fund" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_LeadOrgUnit">
+            <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.A_LeadOrgUnit">
+              <MappingFragment StoreEntitySet="A_LeadOrgUnit">
+                <ScalarProperty Name="LeadOrgUnitID" ColumnName="LeadOrgUnitID" />
+                <ScalarProperty Name="LeadOrgUnit" ColumnName="LeadOrgUnit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_Theme">
+            <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.A_Theme">
+              <MappingFragment StoreEntitySet="A_Theme">
+                <ScalarProperty Name="ThemeID" ColumnName="ThemeID" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNHabitatProjects">
+            <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.UNHabitatProject">
+              <MappingFragment StoreEntitySet="UNHabitatProjects">
+                <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+                <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+                <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+                <ScalarProperty Name="DateEdited" ColumnName="DateEdited" />
+                <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+                <ScalarProperty Name="DeletedRecord" ColumnName="DeletedRecord" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+                <ScalarProperty Name="PAASCode" ColumnName="PAASCode" />
+                <ScalarProperty Name="ApprovalStatusID" ColumnName="ApprovalStatusID" />
+                <ScalarProperty Name="FundID" ColumnName="FundID" />
+                <ScalarProperty Name="PAGValue" ColumnName="PAGValue" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="LeadOrgUnitID" ColumnName="LeadOrgUnitID" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="Donor" ColumnName="Donor" />
+                <ScalarProperty Name="TotalExpenditure" ColumnName="TotalExpenditure" />
+                <ScalarProperty Name="TotalContribution" ColumnName="TotalContribution" />
+                <ScalarProperty Name="TotalContribution_TotalExpenditure" ColumnName="TotalContribution_TotalExpenditure" />
+                <ScalarProperty Name="TotalPSC" ColumnName="TotalPSC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

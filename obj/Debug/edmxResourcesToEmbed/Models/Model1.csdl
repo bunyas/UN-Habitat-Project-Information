@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="procrecordfilesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="record">
+    <Key>
+      <PropertyRef Name="refno" />
+    </Key>
+    <Property Name="refno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dateofbidopening" Type="DateTime" Precision="3" />
+    <Property Name="dateofevaluation" Type="DateTime" Precision="3" />
+    <Property Name="endofevaluationdate" Type="DateTime" Precision="3" />
+    <Property Name="dateofbidexpirey" Type="DateTime" Precision="3" />
+    <Property Name="dateofbidsecurityexpirey" Type="DateTime" Precision="3" />
+    <Property Name="contractsignaturedate" Type="DateTime" Precision="3" />
+    <Property Name="dateofcontractexpirey" Type="DateTime" Precision="3" />
+    <Property Name="signedby" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="staff" Relationship="Self.FK_records_staff" FromRole="records" ToRole="staff" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <Property Name="dateofbidcollection" Type="DateTime" Precision="3" />
+    <Property Name="dateofbidsubmission" Type="DateTime" Precision="3" />
+    <Property Name="fid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="category" Relationship="procrecordfilesModel.FK_records_category" FromRole="record" ToRole="category" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <NavigationProperty Name="file" Relationship="procrecordfilesModel.FK_records_files" FromRole="record" ToRole="file" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <Property Name="Status_ID" Type="Int32" />
+    <NavigationProperty Name="A_Status" Relationship="procrecordfilesModel.FK_records_A_Status" FromRole="record" ToRole="A_Status" a:SetterAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
+  </EntityType>
+  <EntityType Name="staff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="positionname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="records" Relationship="Self.FK_records_staff" FromRole="staff" ToRole="records" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <NavigationProperty Name="files" Relationship="procrecordfilesModel.FK_files_staff" FromRole="staff" ToRole="file" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <NavigationProperty Name="files1" Relationship="procrecordfilesModel.FK_files_staff1" FromRole="staff" ToRole="file" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <NavigationProperty Name="files2" Relationship="procrecordfilesModel.FK_files_staff2" FromRole="staff" ToRole="file" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+  </EntityType>
+  <EntityType Name="vew">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="filetype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_records_staff">
+    <End Role="staff" Type="Self.staff" Multiplicity="1" />
+    <End Role="records" Type="Self.record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="records">
+        <PropertyRef Name="signedby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="procrecordfilesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="records" EntityType="Self.record" />
+    <EntitySet Name="staffs" EntityType="Self.staff" />
+    <EntitySet Name="vews" EntityType="Self.vew" />
+    <AssociationSet Name="FK_records_staff" Association="Self.FK_records_staff">
+      <End Role="staff" EntitySet="staffs" />
+      <End Role="records" EntitySet="records" />
+    </AssociationSet>
+    <EntitySet Name="categories" EntityType="procrecordfilesModel.category" />
+    <AssociationSet Name="FK_records_category" Association="procrecordfilesModel.FK_records_category">
+      <End Role="category" EntitySet="categories" />
+      <End Role="record" EntitySet="records" />
+    </AssociationSet>
+    <EntitySet Name="files" EntityType="procrecordfilesModel.file" />
+    <AssociationSet Name="FK_files_staff" Association="procrecordfilesModel.FK_files_staff">
+      <End Role="staff" EntitySet="staffs" />
+      <End Role="file" EntitySet="files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_files_staff1" Association="procrecordfilesModel.FK_files_staff1">
+      <End Role="staff" EntitySet="staffs" />
+      <End Role="file" EntitySet="files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_files_staff2" Association="procrecordfilesModel.FK_files_staff2">
+      <End Role="staff" EntitySet="staffs" />
+      <End Role="file" EntitySet="files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_records_files" Association="procrecordfilesModel.FK_records_files">
+      <End Role="file" EntitySet="files" />
+      <End Role="record" EntitySet="records" />
+    </AssociationSet>
+    <FunctionImport Name="sprecordsGetAll" ReturnType="Collection(procrecordfilesModel.sprecordsGetAll_Result)">
+      <Parameter Name="sdate" Mode="In" Type="DateTime" />
+      <Parameter Name="edate" Mode="In" Type="DateTime" />
+      <Parameter Name="refno" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="spView_procrecords" ReturnType="Collection(procrecordfilesModel.spView_procrecords_Result)">
+      <Parameter Name="sdate" Mode="In" Type="DateTime" />
+      <Parameter Name="edate" Mode="In" Type="DateTime" />
+      <Parameter Name="refno" Mode="In" Type="String" />
+      <Parameter Name="staff" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="AspNetRoles" EntityType="procrecordfilesModel.AspNetRole" />
+    <EntitySet Name="A_Status" EntityType="procrecordfilesModel.A_Status" />
+    <AssociationSet Name="FK_records_A_Status" Association="procrecordfilesModel.FK_records_A_Status">
+      <End Role="A_Status" EntitySet="A_Status" />
+      <End Role="record" EntitySet="records" />
+    </AssociationSet>
+    <EntitySet Name="A_Month" EntityType="procrecordfilesModel.A_Month" />
+    <FunctionImport Name="spView_procrecords_RECORDS" ReturnType="Collection(procrecordfilesModel.spView_procrecords_RECORDS_Result)">
+      <Parameter Name="AA" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="Int32" Nullable="false" />
+    <Property Name="filetype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="records" Relationship="procrecordfilesModel.FK_records_category" FromRole="category" ToRole="record" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+  </EntityType>
+  <Association Name="FK_records_category">
+    <End Type="procrecordfilesModel.category" Role="category" Multiplicity="1" />
+    <End Type="procrecordfilesModel.record" Role="record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="fid" />
+      </Principal>
+      <Dependent Role="record">
+        <PropertyRef Name="fid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="file">
+    <Key>
+      <PropertyRef Name="refno" />
+    </Key>
+    <Property Name="fname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fid" Type="Int32" Nullable="false" />
+    <Property Name="refno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="subjectofproc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contractamount" Type="Double" />
+    <Property Name="estimatedamount" Type="Double" />
+    <Property Name="capturedy" Type="Int32" Nullable="false" />
+    <Property Name="issuedby" Type="Int32" Nullable="false" />
+    <Property Name="editedby" Type="Int32" Nullable="false" />
+    <Property Name="captureddate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="issueddate" Type="DateTime" Precision="3" />
+    <Property Name="editeddate" Type="DateTime" Precision="3" />
+    <Property Name="dateofcollection" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="staff" Relationship="procrecordfilesModel.FK_files_staff" FromRole="file" ToRole="staff" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <NavigationProperty Name="staff1" Relationship="procrecordfilesModel.FK_files_staff1" FromRole="file" ToRole="staff" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <NavigationProperty Name="staff2" Relationship="procrecordfilesModel.FK_files_staff2" FromRole="file" ToRole="staff" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <NavigationProperty Name="record" Relationship="procrecordfilesModel.FK_records_files" FromRole="file" ToRole="record" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+  </EntityType>
+  <Association Name="FK_files_staff">
+    <End Type="procrecordfilesModel.staff" Role="staff" Multiplicity="1" />
+    <End Type="procrecordfilesModel.file" Role="file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="file">
+        <PropertyRef Name="capturedy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_files_staff1">
+    <End Type="procrecordfilesModel.staff" Role="staff" Multiplicity="1" />
+    <End Type="procrecordfilesModel.file" Role="file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="file">
+        <PropertyRef Name="issuedby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_files_staff2">
+    <End Type="procrecordfilesModel.staff" Role="staff" Multiplicity="1" />
+    <End Type="procrecordfilesModel.file" Role="file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="file">
+        <PropertyRef Name="editedby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_records_files">
+    <End Type="procrecordfilesModel.file" Role="file" Multiplicity="1" />
+    <End Type="procrecordfilesModel.record" Role="record" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="file">
+        <PropertyRef Name="refno" />
+      </Principal>
+      <Dependent Role="record">
+        <PropertyRef Name="refno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sprecordsGetAll_Result">
+    <Property Type="String" Name="refno" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="dateofbidopening" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofevaluation" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="endofevaluationdate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofbidexpirey" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofbidsecurityexpirey" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="contractsignaturedate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofcontractexpirey" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofbidcollection" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofbidsubmission" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="signedby" Nullable="false" />
+    <Property Type="Int32" Name="fid" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spView_procrecords_Result">
+    <Property Type="String" Name="filetype" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="fid" Nullable="false" />
+    <Property Type="String" Name="IssuedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="positionname" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="fname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="subjectofproc" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="contractamount" Nullable="true" />
+    <Property Type="Double" Name="estimatedamount" Nullable="true" />
+    <Property Type="DateTime" Name="issueddate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofcollection" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofbidcollection" Nullable="true" Precision="23" />
+    <Property Type="String" Name="EditedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CapturedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="SignedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="StaffID" Nullable="false" />
+    <Property Type="String" Name="refno" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="dateofbidopening" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofevaluation" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="endofevaluationdate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofbidexpirey" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofbidsecurityexpirey" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="contractsignaturedate" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofcontractexpirey" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="dateofbidsubmission" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="captureddate" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="editeddate" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="A_Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="records" Relationship="procrecordfilesModel.FK_records_A_Status" FromRole="A_Status" ToRole="record" a:SetterAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:GetterAccess="Internal" />
+  </EntityType>
+  <Association Name="FK_records_A_Status">
+    <End Type="procrecordfilesModel.A_Status" Role="A_Status" Multiplicity="0..1" />
+    <End Type="procrecordfilesModel.record" Role="record" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_Status">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="record">
+        <PropertyRef Name="Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="A_Month">
+    <Key>
+      <PropertyRef Name="month_id" />
+    </Key>
+    <Property Name="month_id" Type="Int32" Nullable="false" />
+    <Property Name="month_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="spView_procrecords_RECORDS_Result">
+    <Property Type="Int32" Name="Moth_id" Nullable="true" />
+    <Property Type="String" Name="ContributorNo" Nullable="true" MaxLength="550" />
+    <Property Type="String" Name="ContributorName" Nullable="true" MaxLength="550" />
+    <Property Type="String" Name="NewsPlatformCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="NewsPlatformName" Nullable="true" MaxLength="550" />
+    <Property Type="Int32" Name="No_Occurrence" Nullable="true" />
+    <Property Type="Int32" Name="Year" Nullable="true" />
+    <Property Type="String" Name="Month_desc" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MONTHPAY" Nullable="true" />
+    <Property Type="Int64" Name="Rank" Nullable="true" />
+  </ComplexType>
+</Schema>

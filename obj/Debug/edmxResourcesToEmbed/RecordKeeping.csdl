@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="procrecordkeepingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="filecategory">
+    <Key>
+      <PropertyRef Name="fileid" />
+    </Key>
+    <Property Name="fileid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="filecategorytype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="files" Relationship="procrecordkeepingModel.FK_bids_filecategory" FromRole="filecategory" ToRole="file" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+  </EntityType>
+  <EntityType Name="recordkeeping">
+    <Key>
+      <PropertyRef Name="refno" />
+    </Key>
+    <Property Name="refno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dateofevaluation" Type="DateTime" Precision="3" />
+    <Property Name="endofevaluationdate" Type="DateTime" Precision="3" />
+    <Property Name="expireydate" Type="DateTime" Precision="3" />
+    <Property Name="securityexpireydate" Type="DateTime" Precision="3" />
+    <Property Name="signaturedate" Type="DateTime" Precision="3" />
+    <Property Name="signedby" Type="Int32" />
+    <NavigationProperty Name="transaction" Relationship="Self.FK_recordkeeping_transaction" FromRole="recordkeeping" ToRole="transaction" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <NavigationProperty Name="file" Relationship="procrecordkeepingModel.FK_recordkeeping_files" FromRole="recordkeeping" ToRole="file" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+  </EntityType>
+  <EntityType Name="transaction">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="recordkeepings" Relationship="Self.FK_recordkeeping_transaction" FromRole="transaction" ToRole="recordkeeping" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+  </EntityType>
+  <EntityType Name="View_RecordKeeping">
+    <Key>
+      <PropertyRef Name="fileid" />
+      <PropertyRef Name="refno" />
+      <PropertyRef Name="FieldID" />
+      <PropertyRef Name="dateofcollection" />
+      <PropertyRef Name="RecordKeepingRefNo" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="fileid" Type="Int32" Nullable="false" />
+    <Property Name="filecategorytype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="refno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FieldID" Type="Int32" Nullable="false" />
+    <Property Name="filename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="subjectofproc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contractamount" Type="Double" />
+    <Property Name="estimatedamount" Type="Double" />
+    <Property Name="dateofcollection" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="issuedby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="capturedby" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="editedby" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="editeddate" Type="DateTime" Precision="3" />
+    <Property Name="captureddate" Type="DateTime" Precision="3" />
+    <Property Name="issuedate" Type="DateTime" Precision="3" />
+    <Property Name="RecordKeepingRefNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dateofevaluation" Type="DateTime" Precision="3" />
+    <Property Name="endofevaluationdate" Type="DateTime" Precision="3" />
+    <Property Name="expireydate" Type="DateTime" Precision="3" />
+    <Property Name="securityexpireydate" Type="DateTime" Precision="3" />
+    <Property Name="signaturedate" Type="DateTime" Precision="3" />
+    <Property Name="signedby" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_recordkeeping_transaction">
+    <End Role="transaction" Type="Self.transaction" Multiplicity="0..1" />
+    <End Role="recordkeeping" Type="Self.recordkeeping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="recordkeeping">
+        <PropertyRef Name="signedby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="procrecordkeepingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="filecategories" EntityType="Self.filecategory" />
+    <EntitySet Name="recordkeepings" EntityType="Self.recordkeeping" />
+    <EntitySet Name="transactions" EntityType="Self.transaction" />
+    <EntitySet Name="View_RecordKeeping" EntityType="Self.View_RecordKeeping" />
+    <AssociationSet Name="FK_recordkeeping_transaction" Association="Self.FK_recordkeeping_transaction">
+      <End Role="transaction" EntitySet="transactions" />
+      <End Role="recordkeeping" EntitySet="recordkeepings" />
+    </AssociationSet>
+    <EntitySet Name="files" EntityType="procrecordkeepingModel.file" />
+    <AssociationSet Name="FK_bids_filecategory" Association="procrecordkeepingModel.FK_bids_filecategory">
+      <End Role="filecategory" EntitySet="filecategories" />
+      <End Role="file" EntitySet="files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_recordkeeping_files" Association="procrecordkeepingModel.FK_recordkeeping_files">
+      <End Role="file" EntitySet="files" />
+      <End Role="recordkeeping" EntitySet="recordkeepings" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="file">
+    <Key>
+      <PropertyRef Name="refno" />
+    </Key>
+    <Property Name="refno" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fileid" Type="Int32" />
+    <Property Name="filename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="subjectofproc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contractamount" Type="Double" />
+    <Property Name="estimatedamount" Type="Double" />
+    <Property Name="dateofcollection" Type="DateTime" Precision="3" />
+    <Property Name="issuedby" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="capturedby" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="editedby" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="editeddate" Type="DateTime" Precision="3" />
+    <Property Name="captureddate" Type="DateTime" Precision="3" />
+    <Property Name="issuedate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="filecategory" Relationship="procrecordkeepingModel.FK_bids_filecategory" FromRole="file" ToRole="filecategory" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+    <NavigationProperty Name="recordkeeping" Relationship="procrecordkeepingModel.FK_recordkeeping_files" FromRole="file" ToRole="recordkeeping" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+  </EntityType>
+  <Association Name="FK_bids_filecategory">
+    <End Type="procrecordkeepingModel.filecategory" Role="filecategory" Multiplicity="0..1" />
+    <End Type="procrecordkeepingModel.file" Role="file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="filecategory">
+        <PropertyRef Name="fileid" />
+      </Principal>
+      <Dependent Role="file">
+        <PropertyRef Name="fileid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_recordkeeping_files">
+    <End Type="procrecordkeepingModel.file" Role="file" Multiplicity="1" />
+    <End Type="procrecordkeepingModel.recordkeeping" Role="recordkeeping" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="file">
+        <PropertyRef Name="refno" />
+      </Principal>
+      <Dependent Role="recordkeeping">
+        <PropertyRef Name="refno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

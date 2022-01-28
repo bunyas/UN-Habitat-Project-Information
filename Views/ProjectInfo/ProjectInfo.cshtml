@@ -1,0 +1,597 @@
+﻿
+@{
+    ViewBag.Title = " UN-Habitat - Project Information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #activitySummary {
+        padding: 10px;
+        width: auto;
+        height: auto;
+    }
+</style>
+
+<div id='grd'></div>
+<script type="text/javascript">
+    var primaryKeyVlaue;
+    var flag = true;
+    function onGridCellSaveEvent(args) {
+        primaryKeyVlaue = args.rowData.Id;
+        if (flag) {
+            args.cancel = true;
+            if ($.inArray(args.rowData, this.batchChanges.changed) == -1)
+                this.batchChanges.changed.push(args.rowData);
+            var batchData = this.getBatchChanges();
+            if (batchData.changed.length > 0 && !$(args.cell).closest("tr").hasClass("e-insertedrow")) {
+                flag = false;
+                this.batchSave();
+
+                //var url = "GetActivitiesInfo1";
+                //$.getJSON(url, null, function (data) {
+
+                //    $("#RoundTripActivityBurundi").text(data.aBurundi1);
+                //    $("#RoundTripActivityRwanda").text(data.aRwanda1);
+                //    $("#RoundTripActivityKenya").text(data.aKenya1);
+                //    $("#RoundTripActivityTz").text(data.aTanzania1);
+                //    $("#RoundTripActivitySS").text(data.aSouthSudan1);
+                //    $("#RoundTripActivityUg").text(data.aUganda1);
+                //    $("#EACHQActivity").text(data.aEACHeadquarters);
+                //    $("#VCActivity").text(data.aVideoConference);
+                //    $("#InternationalActivity").text(data.aInternational);
+
+                //    var Ptotal = data.aBurundi1 + data.aKenya1 + data.aRwanda1 + data.aTanzania1 + data.aSouthSudan1 + data.aUganda1;
+                //    var GrandTotal = Ptotal + data.aEACHeadquarters;
+
+                //    //Total of Partner States + EACHQ Activity
+                //    $("#TotalPSEACHQActivity").text(GrandTotal);
+
+                //    //Total Partner states
+                //    $('#TotalPSActivity').text(Ptotal);
+                //    var PassTotal = ((Ptotal / GrandTotal) * 100);
+                //    $('#Total_PSActivity').text(Math.round(PassTotal) + "%");
+
+                //    //% EAC
+                //    var PassEAC = ((data.aEACHeadquarters / GrandTotal) * 100);
+                //    $('#EACHQ_Activity').text(Math.round(PassEAC) + "%");
+
+                //    //% Uganda
+                //    var PassUg = ((data.aUganda1 / Ptotal) * 100);
+                //    $('#UgandaActivity').text(Math.round(PassUg) + "%");
+
+                //    //% Kenya
+                //    var PassKenya = ((data.aKenya1 / Ptotal) * 100);
+                //    $('#KenyaActivity').text(Math.round(PassKenya) + "%");
+
+                //    //% TZ
+                //    var PassTZ = ((data.aTanzania1 / Ptotal) * 100);
+                //    $('#TanzaniaActivity').text(Math.round(PassTZ) + "%");
+
+                //    //% Rwanda
+                //    var PassRwanda = ((data.aRwanda1 / Ptotal) * 100);
+                //    $('#RwandaActivity').text(Math.round(PassRwanda) + "%");
+
+                //    //% SS
+                //    var Pass_SS = ((data.aSouthSudan1 / Ptotal) * 100);
+                //    $('#SouthSudanActivity').text(Math.round(Pass_SS) + "%");
+
+                //    //% Burundi
+                //    var PassBurundi = ((data.aBurundi1 / Ptotal) * 100);
+                //    $('#BurundiActivity').text(Math.round(PassBurundi) + "%");
+
+                //    window.Burundi = data.aBurundi1;
+                //    window.kenya = data.aKenya1;
+                //    window.rwanda = data.aRwanda1;
+                //    window.Tz = data.aTanzania1;
+                //    window.SSudan = data.aSouthSudan1;
+                //    window.uganda = data.aUganda1;
+                //});
+            }
+            else
+                flag = false;
+        }
+        else if (!flag)
+            flag = true;
+
+    }
+  
+    function rowDeselectedEvent(args) {
+        if (primaryKeyVlaue != args.rowData.Id && !ej.isNullOrUndefined(primaryKeyVlaue)) {
+            this.batchSave();
+            primaryKeyVlaue = undefined;
+        }
+    }
+</script>
+<script>
+    var mCountry =@Html.Raw(Json.Encode(ViewBag.Country));
+    var mTheme =@Html.Raw(Json.Encode(ViewBag.Theme));
+    var mLeadOrgUnit =@Html.Raw(Json.Encode(ViewBag.LeadOrgUnit));
+    var mFund =@Html.Raw(Json.Encode(ViewBag.Fund));
+    var mApprovalStatus =@Html.Raw(Json.Encode(ViewBag.ApprovalStatus));
+    var mdonar =@Html.Raw(Json.Encode(ViewBag.Donor));
+
+    //grid table
+    $(function () {
+        $("#grd").ejGrid({
+            dataSource: ej.DataManager({ url: "DataSourceGridEdit", batchUrl: "UpdateGridEdit", adaptor: "UrlAdaptor" }),
+            toolbarSettings: { showToolbar: true, toolbarItems: [ej.Grid.ToolBarItems.Add, ej.Grid.ToolBarItems.Edit, ej.Grid.ToolBarItems.Update, ej.Grid.ToolBarItems.Cancel, 'search'] },
+            editSettings: { allowEditing: true, allowAdding: true, editMode: 'batch' },
+            isResponsive: true,
+            enableResponsiveRow: true,
+            allowPaging: true,
+            allowFiltering: true,
+            allowRowSelection: true,
+            allowResizing: true,
+            create: "create",
+            filterSettings: {
+                filterType: "excel"
+            },
+            //queryCellInfo: "queryCellInfo",
+            allowTextWrap: true,
+            cellSave: "onGridCellSaveEvent",
+
+            allowResizeToFit: true,
+            showStackedHeader: true,
+            minWidth: 400,
+            //minHeight: 200,
+            allowScrolling: true,
+            scrollSettings: { width: "100%", height: "100%" },
+            columns: [
+                { type: "checkbox", width:80 },
+                //{ headerText: 'Delete Record', width: 120, commands: [{ buttonOption: { content: 'Delete', cssClass: 'e-primary', click: onClick } }]},// using custom command button
+                {headerText: 'Delete',template: '#actionTemplate',width: 80},  // using column.template
+                { field: "ProjectID", headerText: "IProjectID", width: 50, visible: false },
+
+                {
+                    field: "ProjectTitle", headerText: 'Project Title'
+                    , headerTooltip: "To add new line use Shift-Enter "
+                    , editTemplate: {
+                        create: function () {
+                            return "<textarea style='width:100%; display:block; max-width:100%;line-height:2.0;padding:15px 15px  30px; border-radius:3px; border:1px solid #F7E98D; font:13px Tahoma, cursive; transition:box-shadow 0.5s ease; box-shadow:0 4px 6px rgba(0,0,0,0.1); font-smoothing:subpixel-antialiased; background:linear-gradient(#F9EFAF, #F7E98D); background:-o-linear-gradient(#F9EFAF, #F7E98D); background:-ms-linear-gradient(#F9EFAF, #F7E98D); background:-moz-linear-gradient(#F9EFAF, #F7E98D); background:-webkit-linear-gradient(#F9EFAF, #F7E98D);'>{{:Subject}}</textarea>";
+                        },
+                        write: function (args) {
+                            $('.text').css("max-width", args.element.parent("td").width());
+                            $('.text').css("max-height", args.element.parent("td").height());
+                            null;
+                        },
+                        read: function (args) {
+                            return args.val();
+                        },
+                    }
+                    , width: 400,
+                },
+                { field: "PAASCode", width: 80, headerText: "PAAS Code" },
+                { field: "ApprovalStatusID", width: 100, headerText: "Approval Status", foreignKeyField: "ApprovalStatusID", foreignKeyValue: "ApprovalStatus", dataSource: mApprovalStatus },
+                { field: "FundID", width: 100, headerText: "Fund", foreignKeyField: "FundID", foreignKeyValue: "Fund", dataSource: mFund },
+                { field: "PAGValue", width: 80, headerText: "PAG Value" },
+                { field: "StartDate", width: 120, format: "{0:dd/MM/yyyy}", headerText: "Start Date" },
+                { field: "EndDate", width: 120, format: "{0:dd/MM/yyyy}", headerText: "End Date" },
+                { field: "Country", width: 120, headerText: "Country(ies)" },
+                //{ field: "Country", width: 120, headerText: "Country(ies)", editType: "dropdownedit", editParams: { showCheckbox: true }, foreignKeyField: "Country", foreignKeyValue: "Country", dataSource: mCountry },
+                { field: "LeadOrgUnitID", width: 100, headerText: "Lead Org Unit", foreignKeyField: "LeadOrgUnitID", foreignKeyValue: "LeadOrgUnit", dataSource: mLeadOrgUnit },                //{ field: "ExpectedOutput", width: 300, headerText: "Expected Output" },
+                { field: "Theme", width: 120, headerText: "Theme(s)" },
+                { field: "Donor", width: 120, headerText: "Donor(s)" },
+                //{ field: "Theme", width: 300, headerText: "Theme(s)", editType: "dropdownedit", editParams: { showCheckbox: true }, foreignKeyValue: "Theme", foreignKeyField: "Theme", dataSource: mTheme },
+                //{ field: "Donor", width: 200, headerText: "Donor(s)", editType: "dropdownedit", editParams: { showCheckbox: true }, foreignKeyValue: "Donor", foreignKeyField: "Donor", dataSource: mdonar },
+                { field: "TotalExpenditure", width: 120, headerText: "Total Expenditure" },
+                { field: "TotalContribution", width: 120, headerText: "Total Contribution" },
+                { field: "TotalContribution_TotalExpenditure", width: 120, headerText: "Total Contribution - Total Expenditure" },
+                { field: "Total PSC", width: 120, headerText: "Total PSC" },
+
+         ]
+        });
+    });
+
+</script>
+
+<script>
+    function CheckButton(agrs) {
+
+        // Create grid object.
+        var gridObj = $("#grd").data("ejGrid");
+        // Gets the selected row element list
+        var records = gridObj.getSelectedRows();
+        var AlreadyExist = "";
+        if (records.length) {
+            var count = 0;
+            var Record = (records.length - 1);
+            for (var i = 0; i <= Record; i++) {
+                var id = gridObj.getSelectedRecords()[i].Id;
+                //var facility = gridObj.getSelectedRecords()[i].FacilityCode;
+                //var enddate = gridObj.getSelectedRecords()[i].EndDate;
+                //var prepareddate = gridObj.getSelectedRecords()[i].DatePrepared;
+
+                //alert(enddate); alert(prepareddate);
+                $.ajax({
+                    url: "SaveGridApprovedActivities?id=" + id,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    //data: { values: mymsg },
+                    type: 'GET',
+
+                    success: function (result) {
+                        // alert(data.msg);
+                        //successSave();
+
+                        count++;
+                        if (count == records.length) {
+
+                            successSave();
+                        }
+                    },
+                }
+                )
+            }
+        }
+
+
+    }
+</script>
+
+
+<script type="text/javascript">
+
+    function create(args) {
+        return "<input>";
+    }
+    function read(args) {
+        return args.ejDropDownList("getValue").split(",");
+    }
+    function write(args) {
+        if (args.column.field == "Donor" && args.rowdata != undefined) {
+            var selIndex = [];
+            for (i = 0; i < args.rowdata["Donor"].length; i++)
+                for (j = 0; j < dropData.length; j++) {
+                    if (args.rowdata["Donor"][i] == dropData[j].value) {
+                        selIndex.push(j);
+                        break;
+                    }
+                }
+            args.element.ejDropDownList({ width: "100%", dataSource: dropData, fields: { id: "text", text: "text", value: "value" }, showCheckbox: true, allowMultiSelection: true, selectedItems: args.rowdata !== undefined ? selIndex : "" });
+        }
+
+        if (args.column.field == "Theme" && args.rowdata != undefined) {
+            var selIndex = [];
+            for (i = 0; i < args.rowdata["Theme"].length; i++)
+                for (j = 0; j < participantData.length; j++) {
+                    if (args.rowdata["Theme"][i] == participantData[j].value) {
+                        selIndex.push(j);
+                        break;
+                    }
+                }
+            args.element.ejDropDownList({ width: "100%", dataSource: participantData, fields: { id: "text", text: "text", value: "value" }, showCheckbox: true, allowMultiSelection: true, selectedItems: args.rowdata !== undefined ? selIndex : "" });
+        }
+
+        if (args.column.field == "Country" && args.rowdata != undefined) {
+            var selIndex = [];
+            for (i = 0; i < args.rowdata["Country"].length; i++)
+                for (j = 0; j < VenueData.length; j++) {
+                    if (args.rowdata["Country"][i] == VenueData[j].value) {
+                        selIndex.push(j);
+                        break;
+                    }
+                }
+            args.element.ejDropDownList({ width: "100%", dataSource: VenueData, fields: { id: "text", text: "text", value: "value" }, showCheckbox: true, allowMultiSelection: true, selectedItems: args.rowdata !== undefined ? selIndex : "" });
+        }
+    }
+</script>
+<script>
+    function queryCellInfo(args) { // while rendering the grid employeeid column, need to concatenate the values if the values are in multiple.
+        var fundingsourceData = @Html.Raw(Json.Encode(ViewBag.Donor));
+        var ThemeData = @Html.Raw(Json.Encode(ViewBag.Theme));
+        var CountryData = @Html.Raw(Json.Encode(ViewBag.Country));
+        if (args.column.field == "ApprovedActivity" && !$(args.cell).find("input").hasClass("e-checkbox"))
+        {
+            $(args.cell).find("input").ejCheckBox();//render the ejCheckbox
+        }
+        if (args.column.field == "Donor")
+        {
+            if (args.data.Donor != null && args.data.Donor!='')
+            {
+                var sourceIds = args.data.Donor.split(',');
+                var roles = [];
+                // //console.log(JSON.stringify(sourceIds));
+                for (var i = 0 ; i < sourceIds.length ; i++) {
+                    //Using the predicate you can filter using more that one search field
+                    var detaildata = ej.DataManager(fundingsourceData).executeLocal(ej.Query().where(ej.Predicate("DonorID", ej.FilterOperators.equal, sourceIds[i], false) ).take(10));
+
+                    if(detaildata!= null)
+                    {
+                        ////console.log(JSON.stringify(detaildata));
+                        roles.push(detaildata[0]["Donor"])
+                    }
+                }
+                $(args.cell).text(roles.toString());
+            }
+        }
+        if (args.column.field == "Theme")
+        {
+            if (args.data.Theme != null && args.data.Theme != '')
+            {
+                var sourceIds2 = args.data.Theme.split(',');
+                var roles2 = [];
+                // //console.log(JSON.stringify(sourceIds2));
+                for (var i = 0; i < sourceIds2.length; i++) {
+                    var detaildata2 = ej.DataManager(ThemeData).executeLocal(ej.Query().where(ej.Predicate("ThemeID", ej.FilterOperators.equal, sourceIds2[i], false)).take(10));
+                    if (detaildata2 != null) {
+
+                       //// if (detaildata2.length > 0)
+                       // {
+                        roles2.push(detaildata2[0]["Theme"]);
+                       //     //console.log(JSON.stringify(detaildata2));
+                       // }
+                       // //else {
+                       // //    roles2.push('he he he');
+                       // //}
+                    }
+                }
+                $(args.cell).text(roles2.toString());
+            }
+        }
+
+//foreignKeyField: "id", foreignKeyValue: "VenueName", dataSource: mVenue
+        if (args.column.field == "Country") {
+            if (args.data.Country != null && args.data.Country != '') {
+                var sourceIds3 = args.data.Country.split(',');
+                var roles3 = [];
+                // //console.log(JSON.stringify(sourceIds2));
+                for (var i = 0; i < sourceIds3.length; i++) {
+                    var detaildata3 = ej.DataManager(CountryData).executeLocal(ej.Query().where(ej.Predicate("CountryID", ej.FilterOperators.equal, sourceIds3[i], false)).take(10));
+                    if (detaildata3 != null) {
+
+                        if (detaildata3.length > 0)
+                         {
+                        //console.log(JSON.stringify(detaildata3));
+                            roles3.push(detaildata3[0]["Country"]);
+                        //     //console.log(JSON.stringify(detaildata2));
+                        }
+                        // //else {
+                        // //    roles2.push('he he he');
+                        // //}
+                    }
+                }
+                $(args.cell).text(roles3.toString());
+            }
+        }
+
+
+    }
+</script>
+<!--Code corresponding to headerTemplate-->
+<script type="text/x-jsrender" id="headerTemplate">
+    <input type="checkbox" id="headchk" />
+</script>
+<script>
+
+    function createCountry() {
+        return $("<input>");
+    }
+    function writeCountry(args) {
+        var gridObj = $(".e-grid").ejGrid("instance"); // Get grid object
+        var val = ej.isNullOrUndefined(args.rowdata["Country"]) ? "" : args.rowdata["Country"];
+        args.element.ejDropDownList({
+            width: "100%", dataSource: args.column[6].dataSource, value: args.rowdata.Country, fields: { text: "FirstName", value: "Country" },
+
+        })
+    }
+    function readCountry(args) {
+        return args.ejDropDownList("getSelectedValue");   //return the selected value in dropdown list
+
+    }
+</script>
+
+
+<style type="text/css" class="cssStyles">
+    .imgId {
+        margin: 0;
+        /*padding: 3px 10px 3px 3px;*/
+        border: 0 none;
+        width: 40px;
+        height: 40px;
+        /*float: left;*/
+    }
+
+    .e-header {
+        font-weight: bold;
+        border-bottom: 1px solid #c8c8c8;
+        background: #c8c8c8;
+    }
+
+        .e-header > span {
+            display: inline-block;
+            padding: 10px;
+        }
+
+    .ename {
+        font-weight: bold;
+        /*padding: 6px 3px 1px 3px;*/
+    }
+
+    .role, .cont {
+        font-size: smaller;
+        padding: 3px 3px -1px 0px;
+    }
+</style>
+
+
+
+<script>
+     
+    function cascadeEvent(args) {
+        args.requiresDefaultFilter = false; // restrict the built-in mapping for cascading dropdown
+
+        args.cascadeQuery = ej.Query().where("FK_ID", "equal", args.cascadeValue); // query to filter value based id
+    }
+
+    function cascadeEvent2(args) {
+        args.requiresDefaultFilter = false; // restrict the built-in mapping for cascading dropdown
+
+        args.cascadeQuery = ej.Query().where("FK_ID", "equal", args.cascadeValue); // query to filter value based id
+    }
+
+    function cascadeEvent3(args) {
+        args.requiresDefaultFilter = false; // restrict the built-in mapping for cascading dropdown
+
+        args.cascadeQuery = ej.Query().where("FK_ID", "equal", args.cascadeValue); // query to filter value based id
+    }
+</script>
+<script>
+    //    var onClick = function(args){  // click event of button
+    //    var rowObj = grid.getRowObjectFromUID(ej.base.closest(args.target, '.e-row').getAttribute('data-uid'));  // method to get current row object
+    //    var data = rowObj.data;
+    //    alert(JSON.stringify(data));
+    //}
+    function CheckButtonDelete(agrs) {
+        // Create grid object.
+        var gridObj = $("#grd").data("ejGrid");
+        // Gets the selected row element list
+        //var records = gridObj.getRowObjectFromUID(ej.base.closest(args.target, '.e-row').getAttribute('data-uid'));  // method to get current row object
+        var records = gridObj.getSelectedRows();
+        if (records != null) {
+            alert('Are you sure you want to Delete this record ?')
+        }
+        if (records.length) {
+            var count = 0;
+            for (var i = 0; i < records.length; i++) {
+                var id = gridObj.getSelectedRecords()[i].Id;
+
+                $.ajax({
+                    url: "DeleteRecord?id=" + id,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    type: 'GET',
+                    success: function (result) {
+                        count++;
+                        if (count == records.length) {
+                            successDelete();
+                        }
+                    },
+                }
+                )
+            }
+        }
+
+
+    }
+
+    function successDelete(args) {
+        //alert(window._Event);
+        if (window._Event == "beginedit" || window._Event == "add" || window._Event == "delete") { }
+        else {
+
+            $("#grd").ejWaitingPopup("hide");
+
+            var proddesc = $('#ClubID').val();
+            var str = "The Record is" + " Deleted Successfully!!!";
+
+            //$("#SuccessDial").html('<p style="font-family: cursive;color: green;">' + str + '</p></br><button id="button1" style="margin-left: 50%;size: large; showRoundedCorner: true; cssClass:customCss1">OK</button>');
+            $("#SuccessDial").html('<p style="font-family: cursive;color: green;">' + str /*+ '</p></br><button id="button1" style="margin-left: 50%;size: large; showRoundedCorner: true; cssClass:customCss1">OK</button>'*/);
+
+
+            $("#btn1").ejButton({
+                cssClass: "e-primary",
+                size: "large",
+                showRoundedCorner: true,
+                contentType: "textandimage",
+                prefixIcon: "e-icon e-handup",
+                visible: false,
+                style: "float:right",
+                click: function (args) {
+                    $("#SuccessDial").ejDialog("close");
+                }
+            });
+
+            $("#button1").ejButton({
+                cssClass: "e-success",
+                size: "medium",
+                showRoundedCorner: true,
+                contentType: "textandimage",
+                prefixIcon: "e-icon e-handup",
+
+                click: function (args) {
+                    $("#SuccessDial").ejDialog("close");
+                }
+            });
+            $("#SuccessDial").ejDialog({ enableModal: true });
+            $("#SuccessDial").ejDialog("open");
+        }
+
+        var gridObj = $("#grd").data("ejGrid");
+        gridObj.refreshContent(true);
+    }
+
+    function successSave(args) {
+        //alert(window._Event);
+        if (window._Event == "beginedit" || window._Event == "add" || window._Event == "delete") { }
+        else {
+
+            $("#grd").ejWaitingPopup("hide");
+
+            var proddesc = $('#ClubID').val();
+            var str = "The Record is" + " Approved Successfully!!!";
+
+            //$("#SuccessDial").html('<p style="font-family: cursive;color: green;">' + str + '</p></br><button id="button1" style="margin-left: 50%;size: large; showRoundedCorner: true; cssClass:customCss1">OK</button>');
+            $("#SuccessDial").html('<p style="font-family: cursive;color: green;">' + str /*+ '</p></br><button id="button1" style="margin-left: 50%;size: large; showRoundedCorner: true; cssClass:customCss1">OK</button>'*/);
+
+
+            $("#btn1").ejButton({
+                cssClass: "e-primary",
+                size: "large",
+                showRoundedCorner: true,
+                contentType: "textandimage",
+                prefixIcon: "e-icon e-handup",
+                visible: false,
+                style: "float:right",
+                click: function (args) {
+                    $("#SuccessDial").ejDialog("close");
+                }
+            });
+
+            $("#button1").ejButton({
+                cssClass: "e-success",
+                size: "medium",
+                showRoundedCorner: true,
+                contentType: "textandimage",
+                prefixIcon: "e-icon e-handup",
+
+                click: function (args) {
+                    $("#SuccessDial").ejDialog("close");
+                }
+            });
+            $("#SuccessDial").ejDialog({ enableModal: true });
+            $("#SuccessDial").ejDialog("open");
+        }
+
+        var gridObj = $("#grd").data("ejGrid");
+        gridObj.refreshContent(true);
+    }
+
+</script>
+
+<script id="actionTemplate" type="text/x-template">
+    <input type='button' class="btn btn-danger btn-sm" value='Delete' onClick="CheckButtonDelete(event);">
+</script>
+<script id="cancelfooter" type="text/x-jsrender">
+    <div class="footerspan" style="float:right">
+        @Html.EJ().Button("btnOK").Size(ButtonSize.Medium).Height("30").Width("70").Text("Ok")
+        @Html.EJ().Button("btnCancel").Size(ButtonSize.Mini).Height("30").Width("70").Text("Cancel")
+
+    </div>
+    <div class="condition" style="float:left; margin-left:15px">
+        @Html.EJ().CheckBox("check1").Text("Don't ask me this again")
+    </div>
+</script>
+@(Html.EJ().Dialog("ErrorList").Title("Exception Thrown").ShowOnInit(false))
+@(Html.EJ().Dialog("SuccessDial").Title("Record Deleted").ShowFooter(true).FooterTemplateId("sample").ShowOnInit(false))
+@(Html.EJ().Dialog("CancelDial").Title("Record Not Saved").ShowFooter(true).FooterTemplateId("cancelfooter").ShowOnInit(false))
+
+<script id="sample" type="text/x-jsrender">
+    <div class="footerspan" style="float:right">
+
+        @Html.EJ().Button("btn1").Size(ButtonSize.Medium).Height("30").Width("70").Text("Ok")
+
+    </div>
+</script>
+
+
+

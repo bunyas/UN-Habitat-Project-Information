@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="procrecordkeepingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="filecategory">
+    <Key>
+      <PropertyRef Name="fileid" />
+    </Key>
+    <Property Name="fileid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="filecategorytype" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="files">
+    <Key>
+      <PropertyRef Name="refno" />
+    </Key>
+    <Property Name="refno" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fileid" Type="int" />
+    <Property Name="filename" Type="nvarchar" MaxLength="50" />
+    <Property Name="subjectofproc" Type="nvarchar" MaxLength="50" />
+    <Property Name="contractamount" Type="float" />
+    <Property Name="estimatedamount" Type="float" />
+    <Property Name="dateofcollection" Type="datetime" />
+    <Property Name="issuedby" Type="nvarchar" MaxLength="50" />
+    <Property Name="capturedby" Type="nvarchar" MaxLength="150" />
+    <Property Name="editedby" Type="nvarchar" MaxLength="150" />
+    <Property Name="editeddate" Type="datetime" />
+    <Property Name="captureddate" Type="datetime" />
+    <Property Name="issuedate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="recordkeeping">
+    <Key>
+      <PropertyRef Name="refno" />
+    </Key>
+    <Property Name="refno" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dateofevaluation" Type="datetime" />
+    <Property Name="endofevaluationdate" Type="datetime" />
+    <Property Name="expireydate" Type="datetime" />
+    <Property Name="securityexpireydate" Type="datetime" />
+    <Property Name="signaturedate" Type="datetime" />
+    <Property Name="signedby" Type="int" />
+  </EntityType>
+  <EntityType Name="transaction">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'procrecordkeeping.dbo.View_RecordKeeping' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_RecordKeeping">
+    <Key>
+      <PropertyRef Name="fileid" />
+      <PropertyRef Name="refno" />
+      <PropertyRef Name="FieldID" />
+      <PropertyRef Name="dateofcollection" />
+      <PropertyRef Name="RecordKeepingRefNo" />
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="fileid" Type="int" Nullable="false" />
+    <Property Name="filecategorytype" Type="nvarchar" MaxLength="50" />
+    <Property Name="refno" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FieldID" Type="int" Nullable="false" />
+    <Property Name="filename" Type="nvarchar" MaxLength="50" />
+    <Property Name="subjectofproc" Type="nvarchar" MaxLength="50" />
+    <Property Name="contractamount" Type="float" />
+    <Property Name="estimatedamount" Type="float" />
+    <Property Name="dateofcollection" Type="datetime" Nullable="false" />
+    <Property Name="issuedby" Type="nvarchar" MaxLength="50" />
+    <Property Name="capturedby" Type="nvarchar" MaxLength="150" />
+    <Property Name="editedby" Type="nvarchar" MaxLength="150" />
+    <Property Name="editeddate" Type="datetime" />
+    <Property Name="captureddate" Type="datetime" />
+    <Property Name="issuedate" Type="datetime" />
+    <Property Name="RecordKeepingRefNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dateofevaluation" Type="datetime" />
+    <Property Name="endofevaluationdate" Type="datetime" />
+    <Property Name="expireydate" Type="datetime" />
+    <Property Name="securityexpireydate" Type="datetime" />
+    <Property Name="signaturedate" Type="datetime" />
+    <Property Name="signedby" Type="int" />
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_bids_filecategory">
+    <End Role="filecategory" Type="Self.filecategory" Multiplicity="0..1" />
+    <End Role="files" Type="Self.files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="filecategory">
+        <PropertyRef Name="fileid" />
+      </Principal>
+      <Dependent Role="files">
+        <PropertyRef Name="fileid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_recordkeeping_files">
+    <End Role="files" Type="Self.files" Multiplicity="1" />
+    <End Role="recordkeeping" Type="Self.recordkeeping" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="files">
+        <PropertyRef Name="refno" />
+      </Principal>
+      <Dependent Role="recordkeeping">
+        <PropertyRef Name="refno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_recordkeeping_transaction">
+    <End Role="transaction" Type="Self.transaction" Multiplicity="0..1" />
+    <End Role="recordkeeping" Type="Self.recordkeeping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="transaction">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="recordkeeping">
+        <PropertyRef Name="signedby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="procrecordkeepingModelStoreContainer">
+    <EntitySet Name="filecategory" EntityType="Self.filecategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="files" EntityType="Self.files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="recordkeeping" EntityType="Self.recordkeeping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="transaction" EntityType="Self.transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="View_RecordKeeping" EntityType="Self.View_RecordKeeping" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_RecordKeeping].[fileid] AS [fileid], 
+    [View_RecordKeeping].[filecategorytype] AS [filecategorytype], 
+    [View_RecordKeeping].[refno] AS [refno], 
+    [View_RecordKeeping].[FieldID] AS [FieldID], 
+    [View_RecordKeeping].[filename] AS [filename], 
+    [View_RecordKeeping].[subjectofproc] AS [subjectofproc], 
+    [View_RecordKeeping].[contractamount] AS [contractamount], 
+    [View_RecordKeeping].[estimatedamount] AS [estimatedamount], 
+    [View_RecordKeeping].[dateofcollection] AS [dateofcollection], 
+    [View_RecordKeeping].[issuedby] AS [issuedby], 
+    [View_RecordKeeping].[capturedby] AS [capturedby], 
+    [View_RecordKeeping].[editedby] AS [editedby], 
+    [View_RecordKeeping].[editeddate] AS [editeddate], 
+    [View_RecordKeeping].[captureddate] AS [captureddate], 
+    [View_RecordKeeping].[issuedate] AS [issuedate], 
+    [View_RecordKeeping].[RecordKeepingRefNo] AS [RecordKeepingRefNo], 
+    [View_RecordKeeping].[dateofevaluation] AS [dateofevaluation], 
+    [View_RecordKeeping].[endofevaluationdate] AS [endofevaluationdate], 
+    [View_RecordKeeping].[expireydate] AS [expireydate], 
+    [View_RecordKeeping].[securityexpireydate] AS [securityexpireydate], 
+    [View_RecordKeeping].[signaturedate] AS [signaturedate], 
+    [View_RecordKeeping].[signedby] AS [signedby], 
+    [View_RecordKeeping].[id] AS [id], 
+    [View_RecordKeeping].[name] AS [name]
+    FROM [dbo].[View_RecordKeeping] AS [View_RecordKeeping]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_bids_filecategory" Association="Self.FK_bids_filecategory">
+      <End Role="filecategory" EntitySet="filecategory" />
+      <End Role="files" EntitySet="files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_recordkeeping_files" Association="Self.FK_recordkeeping_files">
+      <End Role="files" EntitySet="files" />
+      <End Role="recordkeeping" EntitySet="recordkeeping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_recordkeeping_transaction" Association="Self.FK_recordkeeping_transaction">
+      <End Role="transaction" EntitySet="transaction" />
+      <End Role="recordkeeping" EntitySet="recordkeeping" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

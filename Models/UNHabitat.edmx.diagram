@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1c53567b9614426bbc0ed86b555edbd9" Name="Diagram1">
+        <EntityTypeShape EntityType="UNHabitat_ProjectsModel.A_ApprovalStatus" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNHabitat_ProjectsModel.A_Country" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNHabitat_ProjectsModel.A_Donor" Width="1.5" PointX="5.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNHabitat_ProjectsModel.A_Fund" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNHabitat_ProjectsModel.A_LeadOrgUnit" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNHabitat_ProjectsModel.A_Theme" Width="1.5" PointX="2.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNHabitat_ProjectsModel.UNHabitatProject" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="UNHabitat_ProjectsModel.FK_UNHabitatProjects_A_ApprovalStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="UNHabitat_ProjectsModel.FK_UNHabitatProjects_A_Fund" ManuallyRouted="false" />
+        <AssociationConnector Association="UNHabitat_ProjectsModel.FK_UNHabitatProjects_A_LeadOrgUnit" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

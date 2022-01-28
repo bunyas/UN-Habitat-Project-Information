@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UNHabitat_ProjectsModelStoreContainer" CdmEntityContainer="UNHabitat_ProjectsEntities">
+    <EntitySetMapping Name="A_ApprovalStatus">
+      <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.A_ApprovalStatus">
+        <MappingFragment StoreEntitySet="A_ApprovalStatus">
+          <ScalarProperty Name="ApprovalStatusID" ColumnName="ApprovalStatusID" />
+          <ScalarProperty Name="ApprovalStatus" ColumnName="ApprovalStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A_Country">
+      <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.A_Country">
+        <MappingFragment StoreEntitySet="A_Country">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A_Donor">
+      <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.A_Donor">
+        <MappingFragment StoreEntitySet="A_Donor">
+          <ScalarProperty Name="DonorID" ColumnName="DonorID" />
+          <ScalarProperty Name="Donor" ColumnName="Donor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A_Fund">
+      <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.A_Fund">
+        <MappingFragment StoreEntitySet="A_Fund">
+          <ScalarProperty Name="FundID" ColumnName="FundID" />
+          <ScalarProperty Name="Fund" ColumnName="Fund" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A_LeadOrgUnit">
+      <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.A_LeadOrgUnit">
+        <MappingFragment StoreEntitySet="A_LeadOrgUnit">
+          <ScalarProperty Name="LeadOrgUnitID" ColumnName="LeadOrgUnitID" />
+          <ScalarProperty Name="LeadOrgUnit" ColumnName="LeadOrgUnit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A_Theme">
+      <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.A_Theme">
+        <MappingFragment StoreEntitySet="A_Theme">
+          <ScalarProperty Name="ThemeID" ColumnName="ThemeID" />
+          <ScalarProperty Name="Theme" ColumnName="Theme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UNHabitatProjects">
+      <EntityTypeMapping TypeName="UNHabitat_ProjectsModel.UNHabitatProject">
+        <MappingFragment StoreEntitySet="UNHabitatProjects">
+          <ScalarProperty Name="DeletedBy" ColumnName="DeletedBy" />
+          <ScalarProperty Name="DateDeleted" ColumnName="DateDeleted" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="DateEdited" ColumnName="DateEdited" />
+          <ScalarProperty Name="DateAdded" ColumnName="DateAdded" />
+          <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+          <ScalarProperty Name="DeletedRecord" ColumnName="DeletedRecord" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+          <ScalarProperty Name="PAASCode" ColumnName="PAASCode" />
+          <ScalarProperty Name="ApprovalStatusID" ColumnName="ApprovalStatusID" />
+          <ScalarProperty Name="FundID" ColumnName="FundID" />
+          <ScalarProperty Name="PAGValue" ColumnName="PAGValue" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="LeadOrgUnitID" ColumnName="LeadOrgUnitID" />
+          <ScalarProperty Name="Theme" ColumnName="Theme" />
+          <ScalarProperty Name="Donor" ColumnName="Donor" />
+          <ScalarProperty Name="TotalExpenditure" ColumnName="TotalExpenditure" />
+          <ScalarProperty Name="TotalContribution" ColumnName="TotalContribution" />
+          <ScalarProperty Name="TotalContribution_TotalExpenditure" ColumnName="TotalContribution_TotalExpenditure" />
+          <ScalarProperty Name="TotalPSC" ColumnName="TotalPSC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

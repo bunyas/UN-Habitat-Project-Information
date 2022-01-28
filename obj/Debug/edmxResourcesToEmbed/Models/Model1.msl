@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="procrecordfilesModelStoreContainer" CdmEntityContainer="procrecordfilesEntities">
+    <EntitySetMapping Name="records">
+      <EntityTypeMapping TypeName="procrecordfilesModel.record">
+        <MappingFragment StoreEntitySet="records">
+          <ScalarProperty Name="Status_ID" ColumnName="Status_ID" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="dateofbidsubmission" ColumnName="dateofbidsubmission" />
+          <ScalarProperty Name="dateofbidcollection" ColumnName="dateofbidcollection" />
+          <ScalarProperty Name="refno" ColumnName="refno" />
+          <ScalarProperty Name="dateofbidopening" ColumnName="dateofbidopening" />
+          <ScalarProperty Name="dateofevaluation" ColumnName="dateofevaluation" />
+          <ScalarProperty Name="endofevaluationdate" ColumnName="endofevaluationdate" />
+          <ScalarProperty Name="dateofbidexpirey" ColumnName="dateofbidexpirey" />
+          <ScalarProperty Name="dateofbidsecurityexpirey" ColumnName="dateofbidsecurityexpirey" />
+          <ScalarProperty Name="contractsignaturedate" ColumnName="contractsignaturedate" />
+          <ScalarProperty Name="dateofcontractexpirey" ColumnName="dateofcontractexpirey" />
+          <ScalarProperty Name="signedby" ColumnName="signedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="staffs">
+      <EntityTypeMapping TypeName="procrecordfilesModel.staff">
+        <MappingFragment StoreEntitySet="staff">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="positionname" ColumnName="positionname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vews">
+      <EntityTypeMapping TypeName="procrecordfilesModel.vew">
+        <MappingFragment StoreEntitySet="vews">
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="filetype" ColumnName="filetype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="procrecordfilesModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="filetype" ColumnName="filetype" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="files">
+      <EntityTypeMapping TypeName="procrecordfilesModel.file">
+        <MappingFragment StoreEntitySet="files">
+          <ScalarProperty Name="dateofcollection" ColumnName="dateofcollection" />
+          <ScalarProperty Name="editeddate" ColumnName="editeddate" />
+          <ScalarProperty Name="issueddate" ColumnName="issueddate" />
+          <ScalarProperty Name="captureddate" ColumnName="captureddate" />
+          <ScalarProperty Name="editedby" ColumnName="editedby" />
+          <ScalarProperty Name="issuedby" ColumnName="issuedby" />
+          <ScalarProperty Name="capturedy" ColumnName="capturedy" />
+          <ScalarProperty Name="estimatedamount" ColumnName="estimatedamount" />
+          <ScalarProperty Name="contractamount" ColumnName="contractamount" />
+          <ScalarProperty Name="subjectofproc" ColumnName="subjectofproc" />
+          <ScalarProperty Name="refno" ColumnName="refno" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sprecordsGetAll" FunctionName="procrecordfilesModel.Store.sprecordsGetAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="procrecordfilesModel.sprecordsGetAll_Result">
+          <ScalarProperty Name="refno" ColumnName="refno" />
+          <ScalarProperty Name="dateofbidopening" ColumnName="dateofbidopening" />
+          <ScalarProperty Name="dateofevaluation" ColumnName="dateofevaluation" />
+          <ScalarProperty Name="endofevaluationdate" ColumnName="endofevaluationdate" />
+          <ScalarProperty Name="dateofbidexpirey" ColumnName="dateofbidexpirey" />
+          <ScalarProperty Name="dateofbidsecurityexpirey" ColumnName="dateofbidsecurityexpirey" />
+          <ScalarProperty Name="contractsignaturedate" ColumnName="contractsignaturedate" />
+          <ScalarProperty Name="dateofcontractexpirey" ColumnName="dateofcontractexpirey" />
+          <ScalarProperty Name="dateofbidcollection" ColumnName="dateofbidcollection" />
+          <ScalarProperty Name="dateofbidsubmission" ColumnName="dateofbidsubmission" />
+          <ScalarProperty Name="signedby" ColumnName="signedby" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="spView_procrecords" FunctionName="procrecordfilesModel.Store.spView_procrecords">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="procrecordfilesModel.spView_procrecords_Result">
+          <ScalarProperty Name="filetype" ColumnName="filetype" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="IssuedBy" ColumnName="IssuedBy" />
+          <ScalarProperty Name="positionname" ColumnName="positionname" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="subjectofproc" ColumnName="subjectofproc" />
+          <ScalarProperty Name="contractamount" ColumnName="contractamount" />
+          <ScalarProperty Name="estimatedamount" ColumnName="estimatedamount" />
+          <ScalarProperty Name="issueddate" ColumnName="issueddate" />
+          <ScalarProperty Name="dateofcollection" ColumnName="dateofcollection" />
+          <ScalarProperty Name="dateofbidcollection" ColumnName="dateofbidcollection" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CapturedBy" ColumnName="CapturedBy" />
+          <ScalarProperty Name="SignedBy" ColumnName="SignedBy" />
+          <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+          <ScalarProperty Name="refno" ColumnName="refno" />
+          <ScalarProperty Name="dateofbidopening" ColumnName="dateofbidopening" />
+          <ScalarProperty Name="dateofevaluation" ColumnName="dateofevaluation" />
+          <ScalarProperty Name="endofevaluationdate" ColumnName="endofevaluationdate" />
+          <ScalarProperty Name="dateofbidexpirey" ColumnName="dateofbidexpirey" />
+          <ScalarProperty Name="dateofbidsecurityexpirey" ColumnName="dateofbidsecurityexpirey" />
+          <ScalarProperty Name="contractsignaturedate" ColumnName="contractsignaturedate" />
+          <ScalarProperty Name="dateofcontractexpirey" ColumnName="dateofcontractexpirey" />
+          <ScalarProperty Name="dateofbidsubmission" ColumnName="dateofbidsubmission" />
+          <ScalarProperty Name="captureddate" ColumnName="captureddate" />
+          <ScalarProperty Name="editeddate" ColumnName="editeddate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="procrecordfilesModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A_Status">
+      <EntityTypeMapping TypeName="procrecordfilesModel.A_Status">
+        <MappingFragment StoreEntitySet="A_Status">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A_Month">
+      <EntityTypeMapping TypeName="procrecordfilesModel.A_Month">
+        <MappingFragment StoreEntitySet="A_Month">
+          <ScalarProperty Name="month_desc" ColumnName="month_desc" />
+          <ScalarProperty Name="month_id" ColumnName="month_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spView_procrecords_RECORDS" FunctionName="procrecordfilesModel.Store.spView_procrecords_RECORDS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="procrecordfilesModel.spView_procrecords_RECORDS_Result">
+          <ScalarProperty Name="Moth_id" ColumnName="Moth_id" />
+          <ScalarProperty Name="ContributorNo" ColumnName="ContributorNo" />
+          <ScalarProperty Name="ContributorName" ColumnName="ContributorName" />
+          <ScalarProperty Name="NewsPlatformCode" ColumnName="NewsPlatformCode" />
+          <ScalarProperty Name="NewsPlatformName" ColumnName="NewsPlatformName" />
+          <ScalarProperty Name="No_Occurrence" ColumnName="No_Occurrence" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Month_desc" ColumnName="Month_desc" />
+          <ScalarProperty Name="MONTHPAY" ColumnName="MONTHPAY" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

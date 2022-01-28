@@ -1,0 +1,2738 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AIDSFONDETModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="A_AdherenceLevel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="AdherenceLevel" Type="nvarchar" MaxLength="50" />
+    <Property Name="AdherenceLevelDesc" Type="nvarchar" MaxLength="550" />
+  </EntityType>
+  <EntityType Name="A_ApproachUsed">
+    <Key>
+      <PropertyRef Name="ApproachUsed_ID" />
+    </Key>
+    <Property Name="ApproachUsed_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApproachUsed" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_ARTStatus">
+    <Key>
+      <PropertyRef Name="ClientStatusID" />
+    </Key>
+    <Property Name="ClientStatusID" Type="int" Nullable="false" />
+    <Property Name="ClientStatus" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="A_ARTStatus_2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ARTStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_Attachments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="PersonCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Doc" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="A_BeneficaryType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Center_Static_OutReach">
+    <Key>
+      <PropertyRef Name="OutReach" />
+    </Key>
+    <Property Name="OutReach" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OutReach_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_ClientCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="A_ClientCategory_2">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ClientCategory" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_ClientType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_CommoditiesProvided">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CommoditiesProvided" Type="nvarchar" MaxLength="550" />
+  </EntityType>
+  <EntityType Name="A_Counseled">
+    <Key>
+      <PropertyRef Name="Counseled_ID" />
+    </Key>
+    <Property Name="Counseled_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Counseled" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_County">
+    <Key>
+      <PropertyRef Name="County_Id" />
+    </Key>
+    <Property Name="County_Id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="District_Id" Type="nchar" MaxLength="10" />
+    <Property Name="County_Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="County_Ministry_Code" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="A_CoupleResults">
+    <Key>
+      <PropertyRef Name="CoupleResults_ID" />
+    </Key>
+    <Property Name="CoupleResults_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CoupleResults" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_District">
+    <Key>
+      <PropertyRef Name="District_Id" />
+    </Key>
+    <Property Name="District_Id" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="District_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Region_Id" Type="nchar" MaxLength="2" />
+    <Property Name="Is_Urban" Type="bit" />
+    <Property Name="District_Ministry_Code" Type="nchar" MaxLength="2" />
+    <Property Name="Is_Municipality" Type="bit" />
+  </EntityType>
+  <EntityType Name="A_DSDM_Approach">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="DSDM_Approach" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Education_level">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="educ_level" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="A_Facility">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Facility" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="A_FacilityLevel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="A_FamilyPlanning">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FP" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Frequency">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Frequency" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_GBV">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="GBV" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_HCT_Entry_Point">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_HIV">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="HIV" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_HIV_TestingModalities">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="A_HIVPrevention_FamilyPlanning">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="A_HIVPrevention_HIVTestResultCodes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="A_HIVPrevention_OtherPreventionServices">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="A_HIVPrevention_Outcomes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="A_HIVPrevention_STI_SyndromeCodes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="A_HIVPrevention_TB_Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="A_HIVResults">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Results" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_HIVStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="HIVStatus" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_HIVTestingModalities">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TestingModalities" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_IncidentReportedBy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_IncidentType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="A_Key_Population_Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Location">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_MaritalStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_MedicalAssistedTherapy">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="MedicalAssistedTherapy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_MeetingPlace">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="MeetingPlace" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Nationality">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Nation" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_OtherServicesProvided">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Services" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_OutComes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="OutComes" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Parish">
+    <Key>
+      <PropertyRef Name="Parish_Id" />
+    </Key>
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="Parish_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="20" />
+    <Property Name="Parish_Ministry_Code" Type="nchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="A_ParticipantCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_PopulationCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="PopulationCategory" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_PostViolenceCare">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="PostViolenceCare" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_PreviouslyTested">
+    <Key>
+      <PropertyRef Name="Tested_ID" />
+    </Key>
+    <Property Name="Tested_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Tested" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_ProjectType">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="Project" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Referral_Reasons">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="550" />
+  </EntityType>
+  <EntityType Name="A_Region">
+    <Key>
+      <PropertyRef Name="Region_Id" />
+    </Key>
+    <Property Name="Region_Id" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="Region_Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_Relation_to_Child">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Relation_to_HH_Head" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_RelationShip_Person_DisclosedTo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="RelationShip_DisclosedTo" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Religion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Residential_Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_ServicePointName">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Sex">
+    <Key>
+      <PropertyRef Name="SexID" />
+    </Key>
+    <Property Name="SexID" Type="int" Nullable="false" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_Stigma_Indicator">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="A_Stigma_Indicator_1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Stigma_ID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="A_STISyndrome">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="STISyndrome" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Subcounty">
+    <Key>
+      <PropertyRef Name="Subcounty_Id" />
+    </Key>
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" Nullable="false" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="Subcounty_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subcounty_Ministry_Code" Type="nchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="A_SyphilisStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="SyphilisStatus" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_TB_Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="TB" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_TestPoint">
+    <Key>
+      <PropertyRef Name="TestPoint_ID" />
+    </Key>
+    <Property Name="TestPoint_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TestPoint" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_Village">
+    <Key>
+      <PropertyRef Name="Village_Id" />
+    </Key>
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" Nullable="false" />
+    <Property Name="Village_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Ministry_Code" Type="nchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="A_ViralLoad_Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_ViralLoadFollowUpMeans">
+    <Key>
+      <PropertyRef Name="FollowUpMeansID" />
+    </Key>
+    <Property Name="FollowUpMeansID" Type="int" Nullable="false" />
+    <Property Name="FollowUpMeans" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_ViralLoadSupStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ViralLoadSupStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_YesNo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="YesNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Project" Type="int" />
+  </EntityType>
+  <EntityType Name="Core_Art_Monitoring">
+    <Key>
+      <PropertyRef Name="ClientCode" />
+      <PropertyRef Name="Date_of_Followup" />
+    </Key>
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date_of_Followup" Type="datetime" Nullable="false" />
+    <Property Name="EnrollmentDate" Type="datetime" />
+    <Property Name="Region_Id" Type="nchar" MaxLength="2" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="HotspotName_DICE" Type="nvarchar" MaxLength="550" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="Location" Type="int" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Nationality" Type="int" />
+    <Property Name="DoB" Type="datetime" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Other_Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="HIV_Status" Type="int" />
+    <Property Name="ART_Status" Type="int" />
+    <Property Name="OnArt" Type="int" />
+    <Property Name="ARTNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Facility" Type="nvarchar" MaxLength="150" />
+    <Property Name="DurationOnTreatment" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastAppointmentDate" Type="datetime" />
+    <Property Name="NextAppointmentDate" Type="datetime" />
+    <Property Name="VL_TestDone" Type="int" />
+    <Property Name="VL_ResultsRecieved" Type="int" />
+    <Property Name="VL_Status" Type="int" />
+    <Property Name="VL_Results" Type="int" />
+    <Property Name="Last_VL_Date" Type="datetime" />
+    <Property Name="Next_VL_Date" Type="datetime" />
+    <Property Name="FollowUpMeans" Type="nvarchar" MaxLength="4000" />
+    <Property Name="ClientSuccessfullyContacted" Type="int" />
+    <Property Name="ClientNotContacted" Type="int" />
+    <Property Name="ClientNotContacted_2" Type="int" />
+    <Property Name="ClientNotContacted_Specify" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Unsuppressed_VL_Services" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Unsuppressed_VL_ServicesSpecify" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Unsuppressed_VL_Reason" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Unsuppressed_VL_ReasonSpecify" Type="nvarchar" MaxLength="4000" />
+    <Property Name="NextAction" Type="nvarchar" MaxLength="4000" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Core_CommunityClientRegister">
+    <Key>
+      <PropertyRef Name="ClientCode" />
+    </Key>
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PersonCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Facility" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectType" Type="int" />
+    <Property Name="EnrollmentDate" Type="datetime" />
+    <Property Name="Region_Id" Type="nchar" MaxLength="2" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="HotspotName_DICE" Type="nvarchar" MaxLength="550" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="Location" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Nationality" Type="int" />
+    <Property Name="DoB" Type="datetime" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="Age" Type="int" />
+    <Property Name="KP_Category" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Other_KP_Category" Type="nvarchar" MaxLength="4000" />
+    <Property Name="PeerOutReach" Type="int" />
+    <Property Name="Visited_DIC_Last_6_Mnths" Type="int" />
+    <Property Name="Visited_DIC_Last_6_Mnths_Yes" Type="nvarchar" MaxLength="550" />
+    <Property Name="MeetingPlace" Type="nvarchar" MaxLength="4000" />
+    <Property Name="MeetingPlace_Others_Specify" Type="nvarchar" MaxLength="4000" />
+    <Property Name="YearsActive" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Other_Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="FrequencyOfSex_LastDay" Type="nvarchar" MaxLength="50" />
+    <Property Name="FrequencyOfSex_LastWeek" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoOfSexPartners_LastDay" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoOfSexPartners_LastWeek" Type="nvarchar" MaxLength="50" />
+    <Property Name="CondomUse_LastDay" Type="int" />
+    <Property Name="CondomUse_LastWeek" Type="int" />
+    <Property Name="PWIDs_LastDay" Type="int" />
+    <Property Name="PWIDs_LastWeek" Type="int" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Core_GBV">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CaseNo" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateOfInterview" Type="datetime" />
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Time24" Type="nvarchar" MaxLength="50" />
+    <Property Name="Region_Id" Type="nchar" MaxLength="2" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="IncidentNo" Type="nvarchar" MaxLength="150" />
+    <Property Name="Reffered_From_Somewhere" Type="int" />
+    <Property Name="SurvivorCode" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Age" Type="int" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="Location" Type="nvarchar" MaxLength="150" />
+    <Property Name="Nationality" Type="int" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="150" />
+    <Property Name="NoOfChildren" Type="nvarchar" MaxLength="50" />
+    <Property Name="Familyhead" Type="nvarchar" MaxLength="150" />
+    <Property Name="Religion" Type="int" />
+    <Property Name="Education" Type="nvarchar" MaxLength="150" />
+    <Property Name="Residential_Status" Type="int" />
+    <Property Name="Residential_Status_Others" Type="nvarchar" MaxLength="150" />
+    <Property Name="Incident_Location" Type="nvarchar" MaxLength="150" />
+    <Property Name="Incident_Location_Date" Type="datetime" />
+    <Property Name="Incident_Location_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="DescriptionOfIncident" Type="nvarchar(max)" />
+    <Property Name="IncidentType" Type="nvarchar(max)" />
+    <Property Name="IncidentType_Others" Type="nvarchar(max)" />
+    <Property Name="IncidentReportedBy" Type="int" />
+    <Property Name="IncidentReportedBy_Specify" Type="nvarchar" MaxLength="150" />
+    <Property Name="ClientReffered" Type="int" />
+    <Property Name="ClientReffered_Yes" Type="nvarchar" MaxLength="150" />
+    <Property Name="PerpetratorCode" Type="nvarchar" MaxLength="150" />
+    <Property Name="NoOfPerpetrators" Type="nvarchar" MaxLength="50" />
+    <Property Name="Perpetrator_Age" Type="nvarchar" MaxLength="50" />
+    <Property Name="YoB_Perpetrator" Type="nvarchar" MaxLength="50" />
+    <Property Name="sex_Perpetrator" Type="int" />
+    <Property Name="Perpetrator_Location" Type="nvarchar" MaxLength="150" />
+    <Property Name="Perpetrator_Residential_Status" Type="int" />
+    <Property Name="Perpetrator_nationality" Type="int" />
+    <Property Name="Perpetrator_Occupation" Type="nvarchar" MaxLength="150" />
+    <Property Name="Perpetrator_Education" Type="nvarchar" MaxLength="150" />
+    <Property Name="Perpetrator_RelationShip_2_Victim" Type="int" />
+    <Property Name="Perpetrator_MaritialStatus" Type="int" />
+    <Property Name="Perpetrator_Religion" Type="int" />
+    <Property Name="Perpetrator_Unknown_Desc" Type="nvarchar(max)" />
+    <Property Name="Perpetrator_Current_Location" Type="nvarchar" MaxLength="150" />
+    <Property Name="Perpetrator_Threat" Type="int" />
+    <Property Name="Witness" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Presence_Witness" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Witness_Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Witness_Address" Type="nvarchar" MaxLength="150" />
+    <Property Name="Reported_to_Police" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reported_to_Police" Type="datetime" />
+    <Property Name="Police_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reported_to_LegalServiceCenter" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reported_to_LegalServiceCenter" Type="datetime" />
+    <Property Name="LegalServiceCenter_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reported_to_CDO" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reported_to_CDO" Type="datetime" />
+    <Property Name="CDO_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reported_to_Liveilhood_Programme" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reported_to_Liveilhood_Programme" Type="datetime" />
+    <Property Name="Liveilhood_Programme_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reported_to_LC" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reported_to_LC" Type="datetime" />
+    <Property Name="LC_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reported_to_SafeShelter" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reported_to_SafeShelter" Type="datetime" />
+    <Property Name="SafeShelter_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reported_to_HealthCare" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reported_to_HealthCare" Type="datetime" />
+    <Property Name="HealthCare_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reported_to_Others" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reported_to_Others" Type="datetime" />
+    <Property Name="Others_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reffered_to_Police" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reffered_to_Police" Type="datetime" />
+    <Property Name="Not_Reffered_Police_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reffered_to_LegalProtectionCenter" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reffered_to_LegalProtectionCenter" Type="datetime" />
+    <Property Name="Not_Reffered_LegalSProtectionCenter_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reffered_to_Liveilhood_Programme" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reffered_to_Liveilhood_Programme" Type="datetime" />
+    <Property Name="Not_Reffered_Liveilhood_Programme_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reffered_to_LC" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reffered_to_LC" Type="datetime" />
+    <Property Name="Not_Reffered_LC_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reffered_to_SafeShelter" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reffered_to_SafeShelter" Type="datetime" />
+    <Property Name="Not_Reffered_SafeShelter_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reffered_to_HealthCare" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reffered_to_HealthCare" Type="datetime" />
+    <Property Name="Not_Reffered_HealthCare_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reffered_to_CDO" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reffered_to_CDO" Type="datetime" />
+    <Property Name="Not_Reffered_CDO_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reffered_to_Others" Type="nvarchar" MaxLength="150" />
+    <Property Name="Date_Reffered_to_Others" Type="datetime" />
+    <Property Name="Not_Reffered_Others_ActionTaken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="SafetyPlan" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Counseling" Type="int" />
+    <Property Name="CounselingBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="Report_2_police" Type="int" />
+    <Property Name="Action_By_Elder" Type="int" />
+    <Property Name="FollowUp_Taken" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CompletedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="Designation" Type="nvarchar" MaxLength="150" />
+    <Property Name="CompletedDate" Type="datetime" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Core_HCTClientCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SerialNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="HCT_Date" Type="datetime" />
+    <Property Name="Region_Id" Type="nchar" MaxLength="2" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="NameHealth" Type="nvarchar" MaxLength="150" />
+    <Property Name="HSD" Type="nvarchar" MaxLength="150" />
+    <Property Name="HealthCentre_District" Type="nchar" MaxLength="3" />
+    <Property Name="Center_OutReach" Type="int" />
+    <Property Name="TestPoint" Type="int" />
+    <Property Name="AccompaniedBy" Type="int" />
+    <Property Name="HIV_TestingModalities" Type="int" />
+    <Property Name="HIV_TestingModalitiesSpecify" Type="nvarchar" MaxLength="550" />
+    <Property Name="Specify" Type="nvarchar" MaxLength="250" />
+    <Property Name="ChildDistrict" Type="nchar" MaxLength="3" />
+    <Property Name="ChildCounty" Type="nchar" MaxLength="3" />
+    <Property Name="ChildSubcounty" Type="nchar" MaxLength="10" />
+    <Property Name="ChildParish" Type="nchar" MaxLength="5" />
+    <Property Name="ChildVillage" Type="nchar" MaxLength="5" />
+    <Property Name="PretestDone" Type="int" />
+    <Property Name="HTC_Entry_Points" Type="nvarchar" MaxLength="4000" />
+    <Property Name="HTC_Entry_Points_Specify" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Counseled" Type="int" />
+    <Property Name="ApproachUsed" Type="int" />
+    <Property Name="MaritalStatus" Type="int" />
+    <Property Name="SexualPartners" Type="int" />
+    <Property Name="EverTested" Type="int" />
+    <Property Name="PreviouslyTested" Type="int" />
+    <Property Name="Results_3_Months" Type="int" />
+    <Property Name="Results_6_Months" Type="int" />
+    <Property Name="Results_12_Months" Type="int" />
+    <Property Name="SpouseTested_B4" Type="int" />
+    <Property Name="If_Yes_Results" Type="int" />
+    <Property Name="ClientDate" Type="datetime" />
+    <Property Name="Client_SerialNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="ClientName_2" Type="nvarchar" MaxLength="150" />
+    <Property Name="ClientSex" Type="int" />
+    <Property Name="ClientAge" Type="int" />
+    <Property Name="ClientDistrict" Type="nchar" MaxLength="5" />
+    <Property Name="HealthFacility" Type="nvarchar" MaxLength="150" />
+    <Property Name="Client_Test_Results" Type="int" />
+    <Property Name="ReferralNotes" Type="nvarchar" MaxLength="550" />
+    <Property Name="CounselorName" Type="nvarchar" MaxLength="150" />
+    <Property Name="CounselorDate" Type="datetime" />
+    <Property Name="Consent" Type="nvarchar" MaxLength="150" />
+    <Property Name="ConsentDate" Type="datetime" />
+    <Property Name="TestResults" Type="int" />
+    <Property Name="TestDoneBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="TestDoneDate" Type="datetime" />
+    <Property Name="ResultsReceived" Type="int" />
+    <Property Name="ResultsReceivedCouple" Type="int" />
+    <Property Name="CoupleResults" Type="int" />
+    <Property Name="Suspicion_of_TB" Type="int" />
+    <Property Name="CotrimoxazoleProphylaxis" Type="int" />
+    <Property Name="Linked" Type="int" />
+    <Property Name="ResultsCounselorName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ResultsDate" Type="datetime" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Core_HivPrevention_Services">
+    <Key>
+      <PropertyRef Name="ClientCode" />
+      <PropertyRef Name="Date_of_Followup" />
+    </Key>
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date_of_Followup" Type="datetime" Nullable="false" />
+    <Property Name="Date_of_Registration" Type="datetime" Nullable="false" />
+    <Property Name="Region_Id" Type="nchar" MaxLength="2" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="Location" Type="int" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Nationality" Type="int" />
+    <Property Name="DoB" Type="datetime" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Facility" Type="nvarchar" MaxLength="150" />
+    <Property Name="FacilityLevel" Type="int" />
+    <Property Name="MaritalStatus" Type="int" />
+    <Property Name="ClientCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientCategory_Specify" Type="nvarchar" MaxLength="550" />
+    <Property Name="ServicePointType" Type="int" />
+    <Property Name="ServicePointName" Type="nvarchar" MaxLength="4000" />
+    <Property Name="ServicePointName_Specify" Type="nvarchar" MaxLength="550" />
+    <Property Name="NextAppoitmentDate" Type="datetime" />
+    <Property Name="HIV_Test_Results" Type="int" />
+    <Property Name="Date_ofHIV_Test_Results" Type="datetime" />
+    <Property Name="STI_Syndrome" Type="int" />
+    <Property Name="STI_Treatment" Type="nvarchar" MaxLength="550" />
+    <Property Name="Pregnant_Period" Type="nvarchar" MaxLength="150" />
+    <Property Name="ANC_No" Type="nvarchar" MaxLength="150" />
+    <Property Name="FamilyPlanningMethod" Type="int" />
+    <Property Name="TB_Status" Type="int" />
+    <Property Name="TB_Rx_StartDate" Type="datetime" />
+    <Property Name="TB_Rx_EndDate" Type="datetime" />
+    <Property Name="District_TB_Reg_No" Type="nvarchar" MaxLength="150" />
+    <Property Name="OtherPreventionServices" Type="nvarchar" MaxLength="4000" />
+    <Property Name="VisitOutComes" Type="nvarchar" MaxLength="4000" />
+    <Property Name="VisitOutComesSpecify" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Core_HIVPreventionServicesTrackingForm">
+    <Key>
+      <PropertyRef Name="Id_Code" />
+    </Key>
+    <Property Name="Id_Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrackingDate" Type="datetime" />
+    <Property Name="Facility" Type="int" />
+    <Property Name="FacilityLevel" Type="int" />
+    <Property Name="Region_Id" Type="nchar" MaxLength="2" />
+    <Property Name="District" Type="nchar" MaxLength="3" />
+    <Property Name="Subcounty" Type="nchar" MaxLength="4" />
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="150" />
+    <Property Name="NIN" Type="nvarchar" MaxLength="150" />
+    <Property Name="ClientCategory" Type="int" />
+    <Property Name="DateOfBirth" Type="datetime" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Age" Type="nvarchar" MaxLength="10" />
+    <Property Name="Religion" Type="int" />
+    <Property Name="educ_level" Type="int" />
+    <Property Name="CurrentDistrict" Type="nvarchar" MaxLength="150" />
+    <Property Name="CurrentSubcounty" Type="nvarchar" MaxLength="150" />
+    <Property Name="CurrentParish" Type="nvarchar" MaxLength="150" />
+    <Property Name="CurrentVillage" Type="nvarchar" MaxLength="150" />
+    <Property Name="MaritalStatus" Type="int" />
+    <Property Name="PopulationCategory" Type="int" />
+    <Property Name="PopulationCategory_Specify" Type="nvarchar" MaxLength="550" />
+    <Property Name="DisclosedHIVStatus" Type="int" />
+    <Property Name="RelationShip_DisclosedTo" Type="int" />
+    <Property Name="RelationShip_DisclosedTo_Specify" Type="nvarchar" MaxLength="550" />
+    <Property Name="Spouse_PartnerTest4HIV" Type="int" />
+    <Property Name="Spouse_PartnerTestResults" Type="nvarchar" MaxLength="10" />
+    <Property Name="ServiceModel" Type="int" />
+    <Property Name="ServicePointFacility" Type="nvarchar" MaxLength="250" />
+    <Property Name="ServicePointHotSpotName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ServicePointCenterName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ServicePointOthers" Type="nvarchar" MaxLength="250" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Core_HIVPreventionServicesTrackingForm_Details">
+    <Key>
+      <PropertyRef Name="Visit_Code" />
+    </Key>
+    <Property Name="Visit_Code" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Code" Type="int" Nullable="false" />
+    <Property Name="VisitDate" Type="datetime" />
+    <Property Name="NextAppointmentDate" Type="datetime" />
+    <Property Name="TransferIn" Type="int" />
+    <Property Name="TransferedFrom" Type="nvarchar" MaxLength="550" />
+    <Property Name="HIVStatus" Type="int" />
+    <Property Name="HIVResults" Type="nvarchar" MaxLength="10" />
+    <Property Name="HIVTestResultDate" Type="datetime" />
+    <Property Name="HIVTestingModalities" Type="int" />
+    <Property Name="SyphilisStatus" Type="int" />
+    <Property Name="STISyndrome" Type="int" />
+    <Property Name="STISyndromeOthers" Type="nvarchar" MaxLength="550" />
+    <Property Name="STISyndromeTreatment" Type="nvarchar" MaxLength="550" />
+    <Property Name="MedicalAssistedTherapy" Type="int" />
+    <Property Name="MedicalAssistedTherapyOthers" Type="nvarchar" MaxLength="550" />
+    <Property Name="MedicalAssistedTherapy_StartDate" Type="datetime" />
+    <Property Name="MedicalAssistedTherapy_EndDate" Type="datetime" />
+    <Property Name="GestationInWeeks" Type="nvarchar" MaxLength="50" />
+    <Property Name="EMTCT" Type="nvarchar" MaxLength="50" />
+    <Property Name="FamilyPlanning" Type="int" />
+    <Property Name="TB_Status" Type="nvarchar" MaxLength="10" />
+    <Property Name="TB_RX" Type="nvarchar" MaxLength="550" />
+    <Property Name="TB_StartDate" Type="datetime" />
+    <Property Name="TB_EndDate" Type="datetime" />
+    <Property Name="TB_RegNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="GBV" Type="nvarchar" MaxLength="50" />
+    <Property Name="PostViolenceCare" Type="int" />
+    <Property Name="PostViolenceCare_Specify" Type="nvarchar" MaxLength="550" />
+    <Property Name="PrEP" Type="int" />
+    <Property Name="PrEP_Date" Type="datetime" />
+    <Property Name="PrEP_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Screened4PrEP" Type="int" />
+    <Property Name="PrEP_Screen_Date" Type="datetime" />
+    <Property Name="IsEligible" Type="int" />
+    <Property Name="OtherPreventionServices" Type="nvarchar" MaxLength="50" />
+    <Property Name="OtherPreventionServices_Specify" Type="nvarchar" MaxLength="550" />
+    <Property Name="CommoditiesProvided" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommoditiesProvided_Specify" Type="nvarchar" MaxLength="550" />
+    <Property Name="AdherenceLevel" Type="int" />
+    <Property Name="OnART" Type="int" />
+    <Property Name="ART_Date" Type="datetime" />
+    <Property Name="ART_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="ART_AdherenceSupport" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reffered4ART" Type="int" />
+    <Property Name="ViralLoadCopies" Type="nvarchar" MaxLength="150" />
+    <Property Name="ViralLoadDate" Type="datetime" />
+    <Property Name="DSDM_Approach" Type="nvarchar" MaxLength="10" />
+    <Property Name="OutComes" Type="nvarchar" MaxLength="10" />
+    <Property Name="OutComes_Specify" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Name_HealthWorker" Type="nvarchar" MaxLength="150" />
+    <Property Name="HealthFacility" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Core_LMB_Form_SW123">
+    <Key>
+      <PropertyRef Name="ClientCode" />
+      <PropertyRef Name="SW123_Date" />
+    </Key>
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SW123_Date" Type="datetime" Nullable="false" />
+    <Property Name="Region_Id" Type="nchar" MaxLength="2" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="Stigma" Type="int" />
+    <Property Name="Mistreat" Type="int" />
+    <Property Name="ExperiencedViolence" Type="int" />
+    <Property Name="PoliceHarassment" Type="int" />
+    <Property Name="TreatedUnfair" Type="int" />
+    <Property Name="Abused_Mocked" Type="int" />
+    <Property Name="DeniedService" Type="int" />
+    <Property Name="SeparatedFromOtherPatient" Type="int" />
+    <Property Name="UnwantedPregnancy" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reason4CondomUse" Type="nvarchar" MaxLength="4000" />
+    <Property Name="HIV_Protection" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CondomUsedRecently" Type="int" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Core_MemberShipForm">
+    <Key>
+      <PropertyRef Name="PersonCode" />
+    </Key>
+    <Property Name="PersonCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FormDate" Type="datetime" />
+    <Property Name="EnrollmentDate" Type="datetime" />
+    <Property Name="MemberShipDate" Type="datetime" />
+    <Property Name="Region_Id" Type="nchar" MaxLength="2" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="AnySkills" Type="nvarchar(max)" />
+    <Property Name="Attachments" Type="nvarchar(max)" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="MaritalStatus" Type="int" />
+    <Property Name="Photo" Type="varbinary(max)" />
+    <Property Name="Nationality" Type="int" />
+    <Property Name="DoB" Type="datetime" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="Age" Type="int" />
+    <Property Name="MemberStatus" Type="int" />
+    <Property Name="TimeSpent_Residence" Type="nvarchar" MaxLength="50" />
+    <Property Name="WorkEmployer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Other_Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Expectations" Type="nvarchar(max)" />
+    <Property Name="Witness" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Core_Participant_Training">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="ParticipantCode" Type="nvarchar" MaxLength="150" />
+    <Property Name="ParticipantName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ActivityDate" Type="datetime" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="BeneficaryType" Type="int" />
+    <Property Name="ParticipantCategory" Type="int" />
+    <Property Name="Workplace" Type="nvarchar" MaxLength="550" />
+    <Property Name="Trianing" Type="nvarchar" MaxLength="4000" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Core_Referral">
+    <Key>
+      <PropertyRef Name="ClientCode" />
+      <PropertyRef Name="Referral_Date" />
+    </Key>
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Referral_Date" Type="datetime" Nullable="false" />
+    <Property Name="SerialNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Region_Id" Type="nchar" MaxLength="2" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Age" Type="int" />
+    <Property Name="ClientType" Type="int" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="Facility" Type="nvarchar" MaxLength="150" />
+    <Property Name="FacilityContact" Type="nvarchar" MaxLength="150" />
+    <Property Name="Facility_District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="FacilityCounty_Id" Type="nchar" MaxLength="3" />
+    <Property Name="Facility_Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Referral_Reasons" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Referral_Reasons_Others" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Referring_Peer_Leader" Type="nvarchar" MaxLength="50" />
+    <Property Name="Peer_Leader_Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="HealthWorkerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="HealthWorker_Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="HealthWorkerDesignation" Type="nvarchar" MaxLength="150" />
+    <Property Name="FeedBack_ClientName" Type="nvarchar" MaxLength="150" />
+    <Property Name="FeedBack_SerialNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="FeedBack_IdentifierNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="FeedBack_ServicesGiven" Type="nvarchar" MaxLength="50" />
+    <Property Name="FeedBack_FacilityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FeedBack_FollowUp_Needed" Type="nvarchar" MaxLength="550" />
+    <Property Name="FeedBack_Name_of_FacilityWorker" Type="nvarchar" MaxLength="50" />
+    <Property Name="FeedBack_Date" Type="datetime" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AIDSFONDET.dbo.View_Userdownload_Art_Monitoring' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Userdownload_Art_Monitoring">
+    <Key>
+      <PropertyRef Name="ClientCode" />
+      <PropertyRef Name="Date_of_Followup" />
+    </Key>
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date_of_Followup" Type="datetime" Nullable="false" />
+    <Property Name="EnrollmentDate" Type="datetime" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="District_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Subcounty_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Parish_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="HotspotName_DICE" Type="nvarchar" MaxLength="550" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="BeneficaryName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nation" Type="nvarchar" MaxLength="150" />
+    <Property Name="DoB" Type="datetime" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Other_Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="HIV" Type="nvarchar" MaxLength="50" />
+    <Property Name="OnART" Type="nvarchar" MaxLength="50" />
+    <Property Name="ARTStatus" Type="nvarchar" MaxLength="100" />
+    <Property Name="ARTNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Facility" Type="nvarchar" MaxLength="150" />
+    <Property Name="DurationOnTreatment" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastAppointmentDate" Type="datetime" />
+    <Property Name="NextAppointmentDate" Type="datetime" />
+    <Property Name="VL_TestDone" Type="nvarchar" MaxLength="50" />
+    <Property Name="VL_ResultsRecieved" Type="nvarchar" MaxLength="50" />
+    <Property Name="VL_Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ViralLoadSupStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="Last_VL_Date" Type="datetime" />
+    <Property Name="Next_VL_Date" Type="datetime" />
+    <Property Name="FollowUpMeans" Type="nvarchar" MaxLength="4000" />
+    <Property Name="NextAction" Type="nvarchar" MaxLength="4000" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AIDSFONDET.dbo.View_Userdownload_CommunityClientRegister' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Userdownload_CommunityClientRegister">
+    <Key>
+      <PropertyRef Name="ClientCode" />
+      <PropertyRef Name="PersonCode" />
+    </Key>
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PersonCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Project" Type="nvarchar" MaxLength="150" />
+    <Property Name="EnrollmentDate" Type="datetime" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="District_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="County_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Subcounty_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Parish_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Village_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="HotspotName_DICE" Type="nvarchar" MaxLength="550" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+    <Property Name="BeneficaryName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nation" Type="nvarchar" MaxLength="150" />
+    <Property Name="DoB" Type="datetime" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="Age" Type="int" />
+    <Property Name="KP_Category" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Other_KP_Category" Type="nvarchar" MaxLength="4000" />
+    <Property Name="PeerOutReach" Type="nvarchar" MaxLength="50" />
+    <Property Name="Visited_DIC_Last_6_Mnths" Type="nvarchar" MaxLength="50" />
+    <Property Name="Visited_DIC_Last_6_Mnths_Yes" Type="nvarchar" MaxLength="550" />
+    <Property Name="MeetingPlace" Type="nvarchar" MaxLength="4000" />
+    <Property Name="MeetingPlace_Others_Specify" Type="nvarchar" MaxLength="4000" />
+    <Property Name="YearsActive" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Other_Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="FrequencyOfSex_LastDay" Type="nvarchar" MaxLength="50" />
+    <Property Name="FrequencyOfSex_LastWeek" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoOfSexPartners_LastDay" Type="nvarchar" MaxLength="50" />
+    <Property Name="NoOfSexPartners_LastWeek" Type="nvarchar" MaxLength="50" />
+    <Property Name="CondomUse_LastDay" Type="nvarchar" MaxLength="50" />
+    <Property Name="PWIDs_LastDay" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AIDSFONDET.dbo.View_Userdownload_HCTClientCard' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Userdownload_HCTClientCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="SerialNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="HCT_Date" Type="datetime" />
+    <Property Name="District_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="County_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subcounty_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Parish_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="NameHealth" Type="nvarchar" MaxLength="150" />
+    <Property Name="HSD" Type="nvarchar" MaxLength="150" />
+    <Property Name="HealthCentre_District" Type="nvarchar" MaxLength="50" />
+    <Property Name="Center_OutReach" Type="nvarchar" MaxLength="50" />
+    <Property Name="TestPoint" Type="nvarchar" MaxLength="50" />
+    <Property Name="Relation_to_HH_Head" Type="nvarchar" MaxLength="50" />
+    <Property Name="HIV_TestingModalities" Type="nvarchar" MaxLength="250" />
+    <Property Name="HIV_TestingModalitiesSpecify" Type="nvarchar" MaxLength="550" />
+    <Property Name="Specify" Type="nvarchar" MaxLength="250" />
+    <Property Name="PretestDone" Type="nvarchar" MaxLength="50" />
+    <Property Name="HTC_Entry_Points" Type="nvarchar" MaxLength="50" />
+    <Property Name="HTC_Entry_Points_Specify" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Counseled" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApproachUsed" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaritalStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="SexualPartners" Type="int" />
+    <Property Name="EverTested" Type="nvarchar" MaxLength="50" />
+    <Property Name="PreviouslyTested" Type="nvarchar" MaxLength="50" />
+    <Property Name="Results_3_Months" Type="nvarchar" MaxLength="50" />
+    <Property Name="Results_6_Months" Type="nvarchar" MaxLength="50" />
+    <Property Name="Results_12_Months" Type="nvarchar" MaxLength="50" />
+    <Property Name="SpouseTested_B4" Type="nvarchar" MaxLength="50" />
+    <Property Name="If_Yes_Results" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientDate" Type="datetime" />
+    <Property Name="Client_SerialNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="ClientName_2" Type="nvarchar" MaxLength="150" />
+    <Property Name="ClientSex" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientAge" Type="int" />
+    <Property Name="ClientDistrict" Type="nvarchar" MaxLength="50" />
+    <Property Name="HealthFacility" Type="nvarchar" MaxLength="150" />
+    <Property Name="Client_Test_Results" Type="nvarchar" MaxLength="50" />
+    <Property Name="ReferralNotes" Type="nvarchar" MaxLength="550" />
+    <Property Name="CounselorName" Type="nvarchar" MaxLength="150" />
+    <Property Name="CounselorDate" Type="datetime" />
+    <Property Name="Consent" Type="nvarchar" MaxLength="150" />
+    <Property Name="ConsentDate" Type="datetime" />
+    <Property Name="TestResults" Type="nvarchar" MaxLength="50" />
+    <Property Name="TestDoneBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="TestDoneDate" Type="datetime" />
+    <Property Name="ResultsReceived" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResultsReceivedCouple" Type="nvarchar" MaxLength="50" />
+    <Property Name="CoupleResults" Type="nvarchar" MaxLength="50" />
+    <Property Name="Suspicion_of_TB" Type="nvarchar" MaxLength="50" />
+    <Property Name="CotrimoxazoleProphylaxis" Type="nvarchar" MaxLength="50" />
+    <Property Name="Linked" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResultsCounselorName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ResultsDate" Type="datetime" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AIDSFONDET.dbo.View_Userdownload_HivPrevention_Services' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Userdownload_HivPrevention_Services">
+    <Key>
+      <PropertyRef Name="ClientCode" />
+      <PropertyRef Name="Date_of_Followup" />
+      <PropertyRef Name="Date_of_Registration" />
+    </Key>
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Date_of_Followup" Type="datetime" Nullable="false" />
+    <Property Name="Date_of_Registration" Type="datetime" Nullable="false" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="District_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Subcounty_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Parish_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="BeneficaryName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nation" Type="nvarchar" MaxLength="150" />
+    <Property Name="DoB" Type="datetime" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Facility" Type="nvarchar" MaxLength="150" />
+    <Property Name="FacilityLevel" Type="nvarchar" MaxLength="250" />
+    <Property Name="MaritalStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClientCategory" Type="varchar" MaxLength="250" />
+    <Property Name="ClientCategory_Specify" Type="nvarchar" MaxLength="550" />
+    <Property Name="ServicePointType" Type="nvarchar" MaxLength="50" />
+    <Property Name="ServicePointName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ServicePointName_Specify" Type="nvarchar" MaxLength="550" />
+    <Property Name="NextAppoitmentDate" Type="datetime" />
+    <Property Name="HIV_Test_Results" Type="nvarchar" MaxLength="250" />
+    <Property Name="Date_ofHIV_Test_Results" Type="datetime" />
+    <Property Name="STI_Syndrome" Type="nvarchar" MaxLength="250" />
+    <Property Name="STI_Treatment" Type="nvarchar" MaxLength="550" />
+    <Property Name="Pregnant_Period" Type="nvarchar" MaxLength="150" />
+    <Property Name="ANC_No" Type="nvarchar" MaxLength="150" />
+    <Property Name="FamilyPlanningMethod" Type="nvarchar" MaxLength="250" />
+    <Property Name="TB_Status" Type="nvarchar" MaxLength="250" />
+    <Property Name="TB_Rx_StartDate" Type="datetime" />
+    <Property Name="TB_Rx_EndDate" Type="datetime" />
+    <Property Name="District_TB_Reg_No" Type="nvarchar" MaxLength="150" />
+    <Property Name="OtherPreventionServices" Type="nvarchar" MaxLength="50" />
+    <Property Name="VisitOutComes" Type="nvarchar" MaxLength="50" />
+    <Property Name="VisitOutComesSpecify" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AIDSFONDET.dbo.View_Userdownload_LMB_Form_SW123' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Userdownload_LMB_Form_SW123">
+    <Key>
+      <PropertyRef Name="ClientCode" />
+      <PropertyRef Name="SW123_Date" />
+    </Key>
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SW123_Date" Type="datetime" Nullable="false" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="District_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Subcounty_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Parish_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="BeneficaryName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="Stigma" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mistreat" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExperiencedViolence" Type="nvarchar" MaxLength="50" />
+    <Property Name="PoliceHarassment" Type="nvarchar" MaxLength="50" />
+    <Property Name="TreatedUnfair" Type="nvarchar" MaxLength="50" />
+    <Property Name="Abused_Mocked" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeniedService" Type="nvarchar" MaxLength="50" />
+    <Property Name="SeparatedFromOtherPatient" Type="nvarchar" MaxLength="50" />
+    <Property Name="UnwantedPregnancy" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Reason4CondomUse" Type="nvarchar" MaxLength="4000" />
+    <Property Name="HIV_Protection" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CondomUsedRecently" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AIDSFONDET.dbo.View_Userdownload_MemberShipForm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Userdownload_MemberShipForm">
+    <Key>
+      <PropertyRef Name="PersonCode" />
+    </Key>
+    <Property Name="PersonCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FormDate" Type="datetime" />
+    <Property Name="EnrollmentDate" Type="datetime" />
+    <Property Name="MemberShipDate" Type="datetime" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="District_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subcounty_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Parish_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="BeneficaryName" Type="nvarchar" MaxLength="150" />
+    <Property Name="AnySkills" Type="nvarchar(max)" />
+    <Property Name="Attachments" Type="nvarchar(max)" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="MaritalStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="Photo" Type="varbinary(max)" />
+    <Property Name="Nation" Type="nvarchar" MaxLength="150" />
+    <Property Name="DoB" Type="datetime" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="Age" Type="int" />
+    <Property Name="MemberStatus" Type="nvarchar" MaxLength="150" />
+    <Property Name="TimeSpent_Residence" Type="nvarchar" MaxLength="50" />
+    <Property Name="WorkEmployer" Type="nvarchar" MaxLength="50" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Other_Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Expectations" Type="nvarchar(max)" />
+    <Property Name="Witness" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="Doc_Details" Type="nvarchar(max)" />
+    <Property Name="Doc" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AIDSFONDET.dbo.View_Userdownload_Referral' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_Userdownload_Referral">
+    <Key>
+      <PropertyRef Name="ClientCode" />
+      <PropertyRef Name="Referral_Date" />
+    </Key>
+    <Property Name="ClientCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Referral_Date" Type="datetime" Nullable="false" />
+    <Property Name="SerialNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="District_Id" Type="nchar" MaxLength="3" />
+    <Property Name="District_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="County_Id" Type="nchar" MaxLength="3" />
+    <Property Name="County_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Subcounty_Id" Type="nchar" MaxLength="4" />
+    <Property Name="Subcounty_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Parish_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Parish_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Village_Id" Type="nchar" MaxLength="5" />
+    <Property Name="Village_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="BeneficaryName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+    <Property Name="ClientType" Type="nvarchar" MaxLength="150" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="HotspotName" Type="nvarchar" MaxLength="550" />
+    <Property Name="ContactAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="Facility" Type="nvarchar" MaxLength="150" />
+    <Property Name="FacilityContact" Type="nvarchar" MaxLength="150" />
+    <Property Name="Facility_District" Type="nvarchar" MaxLength="50" />
+    <Property Name="FacilityCounty" Type="nvarchar" MaxLength="50" />
+    <Property Name="Facility_Subcounty" Type="nvarchar" MaxLength="50" />
+    <Property Name="Referral_Reasons" Type="nvarchar" MaxLength="150" />
+    <Property Name="Referral_Reasons_Others" Type="nvarchar" MaxLength="550" />
+    <Property Name="Referring_Peer_Leader" Type="nvarchar" MaxLength="50" />
+    <Property Name="Peer_Leader_Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="HealthWorkerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="HealthWorker_Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="HealthWorkerDesignation" Type="nvarchar" MaxLength="150" />
+    <Property Name="FeedBack_ClientName" Type="nvarchar" MaxLength="150" />
+    <Property Name="FeedBack_SerialNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="FeedBack_IdentifierNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="FeedBack_ServicesGiven" Type="nvarchar" MaxLength="50" />
+    <Property Name="FeedBack_FacilityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FeedBack_FollowUp_Needed" Type="nvarchar" MaxLength="550" />
+    <Property Name="FeedBack_Name_of_FacilityWorker" Type="nvarchar" MaxLength="50" />
+    <Property Name="FeedBack_Date" Type="datetime" />
+    <Property Name="DateUploaded" Type="datetime" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="FK_A_District_A_Region">
+    <End Role="A_Region" Type="Self.A_Region" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="A_District" Type="Self.A_District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_Region">
+        <PropertyRef Name="Region_Id" />
+      </Principal>
+      <Dependent Role="A_District">
+        <PropertyRef Name="Region_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_A_Stigma_Indicator_1_A_Stigma_Indicator">
+    <End Role="A_Stigma_Indicator" Type="Self.A_Stigma_Indicator" Multiplicity="0..1" />
+    <End Role="A_Stigma_Indicator_1" Type="Self.A_Stigma_Indicator_1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_Stigma_Indicator">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="A_Stigma_Indicator_1">
+        <PropertyRef Name="Stigma_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_A_Village_A_Parish">
+    <End Role="A_Parish" Type="Self.A_Parish" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="A_Village" Type="Self.A_Village" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_Parish">
+        <PropertyRef Name="Parish_Id" />
+      </Principal>
+      <Dependent Role="A_Village">
+        <PropertyRef Name="Parish_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_ClientCategory_2">
+    <End Role="A_ClientCategory_2" Type="Self.A_ClientCategory_2" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_ClientCategory_2">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="ClientCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_District">
+    <End Role="A_District" Type="Self.A_District" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_District">
+        <PropertyRef Name="District_Id" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="District" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_Education_level">
+    <End Role="A_Education_level" Type="Self.A_Education_level" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_Education_level">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="educ_level" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_Facility">
+    <End Role="A_Facility" Type="Self.A_Facility" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_Facility">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="Facility" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_FacilityLevel">
+    <End Role="A_FacilityLevel" Type="Self.A_FacilityLevel" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_FacilityLevel">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="FacilityLevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_HIVResults">
+    <End Role="A_HIVResults" Type="Self.A_HIVResults" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_HIVResults">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="Spouse_PartnerTestResults" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_MaritalStatus">
+    <End Role="A_MaritalStatus" Type="Self.A_MaritalStatus" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_MaritalStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="MaritalStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_PopulationCategory">
+    <End Role="A_PopulationCategory" Type="Self.A_PopulationCategory" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_PopulationCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="PopulationCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_RelationShip_Person_DisclosedTo">
+    <End Role="A_RelationShip_Person_DisclosedTo" Type="Self.A_RelationShip_Person_DisclosedTo" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_RelationShip_Person_DisclosedTo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="RelationShip_DisclosedTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_Religion">
+    <End Role="A_Religion" Type="Self.A_Religion" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_Religion">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="Religion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_ServicePointName">
+    <End Role="A_ServicePointName" Type="Self.A_ServicePointName" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_ServicePointName">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="ServiceModel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_Sex">
+    <End Role="A_Sex" Type="Self.A_Sex" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_Sex">
+        <PropertyRef Name="SexID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="Sex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_Subcounty">
+    <End Role="A_Subcounty" Type="Self.A_Subcounty" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_Subcounty">
+        <PropertyRef Name="Subcounty_Id" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="Subcounty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_YesNo">
+    <End Role="A_YesNo" Type="Self.A_YesNo" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_YesNo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="DisclosedHIVStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_A_YesNo1">
+    <End Role="A_YesNo" Type="Self.A_YesNo" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_YesNo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="Spouse_PartnerTest4HIV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_AdherenceLevel">
+    <End Role="A_AdherenceLevel" Type="Self.A_AdherenceLevel" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_AdherenceLevel">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="AdherenceLevel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_ARTStatus_2">
+    <End Role="A_ARTStatus_2" Type="Self.A_ARTStatus_2" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_ARTStatus_2">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="OnART" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_DSDM_Approach">
+    <End Role="A_DSDM_Approach" Type="Self.A_DSDM_Approach" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_DSDM_Approach">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="DSDM_Approach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_FamilyPlanning">
+    <End Role="A_FamilyPlanning" Type="Self.A_FamilyPlanning" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_FamilyPlanning">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="FamilyPlanning" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_HIVResults">
+    <End Role="A_HIVResults" Type="Self.A_HIVResults" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_HIVResults">
+        <PropertyRef Name="Code" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="HIVResults" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_HIVStatus">
+    <End Role="A_HIVStatus" Type="Self.A_HIVStatus" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_HIVStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="HIVStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_HIVTestingModalities">
+    <End Role="A_HIVTestingModalities" Type="Self.A_HIVTestingModalities" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_HIVTestingModalities">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="HIVTestingModalities" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_MedicalAssistedTherapy">
+    <End Role="A_MedicalAssistedTherapy" Type="Self.A_MedicalAssistedTherapy" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_MedicalAssistedTherapy">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="MedicalAssistedTherapy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_OutComes">
+    <End Role="A_OutComes" Type="Self.A_OutComes" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_OutComes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="OutComes" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_PostViolenceCare">
+    <End Role="A_PostViolenceCare" Type="Self.A_PostViolenceCare" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_PostViolenceCare">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="PostViolenceCare" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_STISyndrome">
+    <End Role="A_STISyndrome" Type="Self.A_STISyndrome" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_STISyndrome">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="STISyndrome" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_SyphilisStatus">
+    <End Role="A_SyphilisStatus" Type="Self.A_SyphilisStatus" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_SyphilisStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="SyphilisStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_TB_Status">
+    <End Role="A_TB_Status" Type="Self.A_TB_Status" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_TB_Status">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="TB_Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo">
+    <End Role="A_YesNo" Type="Self.A_YesNo" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_YesNo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="TransferIn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo1">
+    <End Role="A_YesNo" Type="Self.A_YesNo" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_YesNo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="PrEP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo2">
+    <End Role="A_YesNo" Type="Self.A_YesNo" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_YesNo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="Reffered4ART" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo3">
+    <End Role="A_YesNo" Type="Self.A_YesNo" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_YesNo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="IsEligible" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo4">
+    <End Role="A_YesNo" Type="Self.A_YesNo" Multiplicity="0..1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_YesNo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="Screened4PrEP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Core_HIVPreventionServicesTrackingForm_Details_Core_HIVPreventionServicesTrackingForm">
+    <End Role="Core_HIVPreventionServicesTrackingForm" Type="Self.Core_HIVPreventionServicesTrackingForm" Multiplicity="1" />
+    <End Role="Core_HIVPreventionServicesTrackingForm_Details" Type="Self.Core_HIVPreventionServicesTrackingForm_Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Core_HIVPreventionServicesTrackingForm">
+        <PropertyRef Name="Id_Code" />
+      </Principal>
+      <Dependent Role="Core_HIVPreventionServicesTrackingForm_Details">
+        <PropertyRef Name="Id_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="spView_Userdownload_Art_Monitoring" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="District" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spView_Userdownload_CommunityClientRegister" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="District" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spView_Userdownload_HCTClientCard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="District" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spView_Userdownload_HivPrevention_Services" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="District" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spView_Userdownload_LMB_Form_SW123" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="District" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spView_Userdownload_MemberShipForm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="District" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spView_Userdownload_Referral" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="District" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="AIDSFONDETModelStoreContainer">
+    <EntitySet Name="A_AdherenceLevel" EntityType="Self.A_AdherenceLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_ApproachUsed" EntityType="Self.A_ApproachUsed" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_ARTStatus" EntityType="Self.A_ARTStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_ARTStatus_2" EntityType="Self.A_ARTStatus_2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Attachments" EntityType="Self.A_Attachments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_BeneficaryType" EntityType="Self.A_BeneficaryType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Center_Static_OutReach" EntityType="Self.A_Center_Static_OutReach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_ClientCategory" EntityType="Self.A_ClientCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_ClientCategory_2" EntityType="Self.A_ClientCategory_2" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_ClientType" EntityType="Self.A_ClientType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_CommoditiesProvided" EntityType="Self.A_CommoditiesProvided" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Counseled" EntityType="Self.A_Counseled" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_County" EntityType="Self.A_County" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_CoupleResults" EntityType="Self.A_CoupleResults" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_District" EntityType="Self.A_District" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_DSDM_Approach" EntityType="Self.A_DSDM_Approach" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Education_level" EntityType="Self.A_Education_level" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Facility" EntityType="Self.A_Facility" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_FacilityLevel" EntityType="Self.A_FacilityLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_FamilyPlanning" EntityType="Self.A_FamilyPlanning" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Frequency" EntityType="Self.A_Frequency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_GBV" EntityType="Self.A_GBV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_HCT_Entry_Point" EntityType="Self.A_HCT_Entry_Point" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_HIV" EntityType="Self.A_HIV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_HIV_TestingModalities" EntityType="Self.A_HIV_TestingModalities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_HIVPrevention_FamilyPlanning" EntityType="Self.A_HIVPrevention_FamilyPlanning" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_HIVPrevention_HIVTestResultCodes" EntityType="Self.A_HIVPrevention_HIVTestResultCodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_HIVPrevention_OtherPreventionServices" EntityType="Self.A_HIVPrevention_OtherPreventionServices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_HIVPrevention_Outcomes" EntityType="Self.A_HIVPrevention_Outcomes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_HIVPrevention_STI_SyndromeCodes" EntityType="Self.A_HIVPrevention_STI_SyndromeCodes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_HIVPrevention_TB_Status" EntityType="Self.A_HIVPrevention_TB_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_HIVResults" EntityType="Self.A_HIVResults" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_HIVStatus" EntityType="Self.A_HIVStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_HIVTestingModalities" EntityType="Self.A_HIVTestingModalities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_IncidentReportedBy" EntityType="Self.A_IncidentReportedBy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_IncidentType" EntityType="Self.A_IncidentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Key_Population_Category" EntityType="Self.A_Key_Population_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Location" EntityType="Self.A_Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_MaritalStatus" EntityType="Self.A_MaritalStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_MedicalAssistedTherapy" EntityType="Self.A_MedicalAssistedTherapy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_MeetingPlace" EntityType="Self.A_MeetingPlace" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Member" EntityType="Self.A_Member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Nationality" EntityType="Self.A_Nationality" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_OtherServicesProvided" EntityType="Self.A_OtherServicesProvided" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_OutComes" EntityType="Self.A_OutComes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Parish" EntityType="Self.A_Parish" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_ParticipantCategory" EntityType="Self.A_ParticipantCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_PopulationCategory" EntityType="Self.A_PopulationCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_PostViolenceCare" EntityType="Self.A_PostViolenceCare" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_PreviouslyTested" EntityType="Self.A_PreviouslyTested" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_ProjectType" EntityType="Self.A_ProjectType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Referral_Reasons" EntityType="Self.A_Referral_Reasons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Region" EntityType="Self.A_Region" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Relation_to_Child" EntityType="Self.A_Relation_to_Child" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_RelationShip_Person_DisclosedTo" EntityType="Self.A_RelationShip_Person_DisclosedTo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Religion" EntityType="Self.A_Religion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Residential_Status" EntityType="Self.A_Residential_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_ServicePointName" EntityType="Self.A_ServicePointName" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Sex" EntityType="Self.A_Sex" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Stigma_Indicator" EntityType="Self.A_Stigma_Indicator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Stigma_Indicator_1" EntityType="Self.A_Stigma_Indicator_1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_STISyndrome" EntityType="Self.A_STISyndrome" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Subcounty" EntityType="Self.A_Subcounty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_SyphilisStatus" EntityType="Self.A_SyphilisStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_TB_Status" EntityType="Self.A_TB_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_TestPoint" EntityType="Self.A_TestPoint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Village" EntityType="Self.A_Village" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_ViralLoad_Status" EntityType="Self.A_ViralLoad_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_ViralLoadFollowUpMeans" EntityType="Self.A_ViralLoadFollowUpMeans" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_ViralLoadSupStatus" EntityType="Self.A_ViralLoadSupStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_YesNo" EntityType="Self.A_YesNo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Core_Art_Monitoring" EntityType="Self.Core_Art_Monitoring" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Core_CommunityClientRegister" EntityType="Self.Core_CommunityClientRegister" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Core_GBV" EntityType="Self.Core_GBV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Core_HCTClientCard" EntityType="Self.Core_HCTClientCard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Core_HivPrevention_Services" EntityType="Self.Core_HivPrevention_Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Core_HIVPreventionServicesTrackingForm" EntityType="Self.Core_HIVPreventionServicesTrackingForm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Core_HIVPreventionServicesTrackingForm_Details" EntityType="Self.Core_HIVPreventionServicesTrackingForm_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Core_LMB_Form_SW123" EntityType="Self.Core_LMB_Form_SW123" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Core_MemberShipForm" EntityType="Self.Core_MemberShipForm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Core_Participant_Training" EntityType="Self.Core_Participant_Training" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Core_Referral" EntityType="Self.Core_Referral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="View_Userdownload_Art_Monitoring" EntityType="Self.View_Userdownload_Art_Monitoring" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Userdownload_Art_Monitoring].[ClientCode] AS [ClientCode], 
+    [View_Userdownload_Art_Monitoring].[Date_of_Followup] AS [Date_of_Followup], 
+    [View_Userdownload_Art_Monitoring].[EnrollmentDate] AS [EnrollmentDate], 
+    [View_Userdownload_Art_Monitoring].[District_Id] AS [District_Id], 
+    [View_Userdownload_Art_Monitoring].[District_Name] AS [District_Name], 
+    [View_Userdownload_Art_Monitoring].[County_Id] AS [County_Id], 
+    [View_Userdownload_Art_Monitoring].[County_Name] AS [County_Name], 
+    [View_Userdownload_Art_Monitoring].[Subcounty_Id] AS [Subcounty_Id], 
+    [View_Userdownload_Art_Monitoring].[Subcounty_Name] AS [Subcounty_Name], 
+    [View_Userdownload_Art_Monitoring].[Parish_Id] AS [Parish_Id], 
+    [View_Userdownload_Art_Monitoring].[Parish_Name] AS [Parish_Name], 
+    [View_Userdownload_Art_Monitoring].[Village_Id] AS [Village_Id], 
+    [View_Userdownload_Art_Monitoring].[Village_Name] AS [Village_Name], 
+    [View_Userdownload_Art_Monitoring].[HotspotName_DICE] AS [HotspotName_DICE], 
+    [View_Userdownload_Art_Monitoring].[HotspotName] AS [HotspotName], 
+    [View_Userdownload_Art_Monitoring].[Location] AS [Location], 
+    [View_Userdownload_Art_Monitoring].[ContactAddress] AS [ContactAddress], 
+    [View_Userdownload_Art_Monitoring].[BeneficaryName] AS [BeneficaryName], 
+    [View_Userdownload_Art_Monitoring].[Sex] AS [Sex], 
+    [View_Userdownload_Art_Monitoring].[Nation] AS [Nation], 
+    [View_Userdownload_Art_Monitoring].[DoB] AS [DoB], 
+    [View_Userdownload_Art_Monitoring].[Age] AS [Age], 
+    [View_Userdownload_Art_Monitoring].[Tel] AS [Tel], 
+    [View_Userdownload_Art_Monitoring].[Other_Tel] AS [Other_Tel], 
+    [View_Userdownload_Art_Monitoring].[HIV] AS [HIV], 
+    [View_Userdownload_Art_Monitoring].[OnART] AS [OnART], 
+    [View_Userdownload_Art_Monitoring].[ARTStatus] AS [ARTStatus], 
+    [View_Userdownload_Art_Monitoring].[ARTNo] AS [ARTNo], 
+    [View_Userdownload_Art_Monitoring].[Facility] AS [Facility], 
+    [View_Userdownload_Art_Monitoring].[DurationOnTreatment] AS [DurationOnTreatment], 
+    [View_Userdownload_Art_Monitoring].[LastAppointmentDate] AS [LastAppointmentDate], 
+    [View_Userdownload_Art_Monitoring].[NextAppointmentDate] AS [NextAppointmentDate], 
+    [View_Userdownload_Art_Monitoring].[VL_TestDone] AS [VL_TestDone], 
+    [View_Userdownload_Art_Monitoring].[VL_ResultsRecieved] AS [VL_ResultsRecieved], 
+    [View_Userdownload_Art_Monitoring].[VL_Status] AS [VL_Status], 
+    [View_Userdownload_Art_Monitoring].[ViralLoadSupStatus] AS [ViralLoadSupStatus], 
+    [View_Userdownload_Art_Monitoring].[Last_VL_Date] AS [Last_VL_Date], 
+    [View_Userdownload_Art_Monitoring].[Next_VL_Date] AS [Next_VL_Date], 
+    [View_Userdownload_Art_Monitoring].[FollowUpMeans] AS [FollowUpMeans], 
+    [View_Userdownload_Art_Monitoring].[NextAction] AS [NextAction], 
+    [View_Userdownload_Art_Monitoring].[DateUploaded] AS [DateUploaded], 
+    [View_Userdownload_Art_Monitoring].[UploadedBy] AS [UploadedBy], 
+    [View_Userdownload_Art_Monitoring].[DateEdited] AS [DateEdited], 
+    [View_Userdownload_Art_Monitoring].[EditedBy] AS [EditedBy], 
+    [View_Userdownload_Art_Monitoring].[DateDeleted] AS [DateDeleted], 
+    [View_Userdownload_Art_Monitoring].[DeletedBy] AS [DeletedBy]
+    FROM [dbo].[View_Userdownload_Art_Monitoring] AS [View_Userdownload_Art_Monitoring]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Userdownload_CommunityClientRegister" EntityType="Self.View_Userdownload_CommunityClientRegister" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Userdownload_CommunityClientRegister].[ClientCode] AS [ClientCode], 
+    [View_Userdownload_CommunityClientRegister].[PersonCode] AS [PersonCode], 
+    [View_Userdownload_CommunityClientRegister].[Project] AS [Project], 
+    [View_Userdownload_CommunityClientRegister].[EnrollmentDate] AS [EnrollmentDate], 
+    [View_Userdownload_CommunityClientRegister].[District_Id] AS [District_Id], 
+    [View_Userdownload_CommunityClientRegister].[District_Name] AS [District_Name], 
+    [View_Userdownload_CommunityClientRegister].[County_Name] AS [County_Name], 
+    [View_Userdownload_CommunityClientRegister].[County_Id] AS [County_Id], 
+    [View_Userdownload_CommunityClientRegister].[Subcounty_Id] AS [Subcounty_Id], 
+    [View_Userdownload_CommunityClientRegister].[Subcounty_Name] AS [Subcounty_Name], 
+    [View_Userdownload_CommunityClientRegister].[Parish_Id] AS [Parish_Id], 
+    [View_Userdownload_CommunityClientRegister].[Parish_Name] AS [Parish_Name], 
+    [View_Userdownload_CommunityClientRegister].[Village_Name] AS [Village_Name], 
+    [View_Userdownload_CommunityClientRegister].[Village_Id] AS [Village_Id], 
+    [View_Userdownload_CommunityClientRegister].[HotspotName_DICE] AS [HotspotName_DICE], 
+    [View_Userdownload_CommunityClientRegister].[HotspotName] AS [HotspotName], 
+    [View_Userdownload_CommunityClientRegister].[Location] AS [Location], 
+    [View_Userdownload_CommunityClientRegister].[BeneficaryName] AS [BeneficaryName], 
+    [View_Userdownload_CommunityClientRegister].[Sex] AS [Sex], 
+    [View_Userdownload_CommunityClientRegister].[Nation] AS [Nation], 
+    [View_Userdownload_CommunityClientRegister].[DoB] AS [DoB], 
+    [View_Userdownload_CommunityClientRegister].[ContactAddress] AS [ContactAddress], 
+    [View_Userdownload_CommunityClientRegister].[Age] AS [Age], 
+    [View_Userdownload_CommunityClientRegister].[KP_Category] AS [KP_Category], 
+    [View_Userdownload_CommunityClientRegister].[Other_KP_Category] AS [Other_KP_Category], 
+    [View_Userdownload_CommunityClientRegister].[PeerOutReach] AS [PeerOutReach], 
+    [View_Userdownload_CommunityClientRegister].[Visited_DIC_Last_6_Mnths] AS [Visited_DIC_Last_6_Mnths], 
+    [View_Userdownload_CommunityClientRegister].[Visited_DIC_Last_6_Mnths_Yes] AS [Visited_DIC_Last_6_Mnths_Yes], 
+    [View_Userdownload_CommunityClientRegister].[MeetingPlace] AS [MeetingPlace], 
+    [View_Userdownload_CommunityClientRegister].[MeetingPlace_Others_Specify] AS [MeetingPlace_Others_Specify], 
+    [View_Userdownload_CommunityClientRegister].[YearsActive] AS [YearsActive], 
+    [View_Userdownload_CommunityClientRegister].[Tel] AS [Tel], 
+    [View_Userdownload_CommunityClientRegister].[Other_Tel] AS [Other_Tel], 
+    [View_Userdownload_CommunityClientRegister].[FrequencyOfSex_LastDay] AS [FrequencyOfSex_LastDay], 
+    [View_Userdownload_CommunityClientRegister].[FrequencyOfSex_LastWeek] AS [FrequencyOfSex_LastWeek], 
+    [View_Userdownload_CommunityClientRegister].[NoOfSexPartners_LastDay] AS [NoOfSexPartners_LastDay], 
+    [View_Userdownload_CommunityClientRegister].[NoOfSexPartners_LastWeek] AS [NoOfSexPartners_LastWeek], 
+    [View_Userdownload_CommunityClientRegister].[CondomUse_LastDay] AS [CondomUse_LastDay], 
+    [View_Userdownload_CommunityClientRegister].[PWIDs_LastDay] AS [PWIDs_LastDay], 
+    [View_Userdownload_CommunityClientRegister].[DateUploaded] AS [DateUploaded], 
+    [View_Userdownload_CommunityClientRegister].[UploadedBy] AS [UploadedBy], 
+    [View_Userdownload_CommunityClientRegister].[DateEdited] AS [DateEdited], 
+    [View_Userdownload_CommunityClientRegister].[EditedBy] AS [EditedBy], 
+    [View_Userdownload_CommunityClientRegister].[DateDeleted] AS [DateDeleted], 
+    [View_Userdownload_CommunityClientRegister].[DeletedBy] AS [DeletedBy]
+    FROM [dbo].[View_Userdownload_CommunityClientRegister] AS [View_Userdownload_CommunityClientRegister]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Userdownload_HCTClientCard" EntityType="Self.View_Userdownload_HCTClientCard" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Userdownload_HCTClientCard].[ID] AS [ID], 
+    [View_Userdownload_HCTClientCard].[SerialNo] AS [SerialNo], 
+    [View_Userdownload_HCTClientCard].[ClientCode] AS [ClientCode], 
+    [View_Userdownload_HCTClientCard].[HCT_Date] AS [HCT_Date], 
+    [View_Userdownload_HCTClientCard].[District_Name] AS [District_Name], 
+    [View_Userdownload_HCTClientCard].[County_Name] AS [County_Name], 
+    [View_Userdownload_HCTClientCard].[Subcounty_Name] AS [Subcounty_Name], 
+    [View_Userdownload_HCTClientCard].[Parish_Name] AS [Parish_Name], 
+    [View_Userdownload_HCTClientCard].[District_Id] AS [District_Id], 
+    [View_Userdownload_HCTClientCard].[County_Id] AS [County_Id], 
+    [View_Userdownload_HCTClientCard].[Subcounty_Id] AS [Subcounty_Id], 
+    [View_Userdownload_HCTClientCard].[Parish_Id] AS [Parish_Id], 
+    [View_Userdownload_HCTClientCard].[Village_Id] AS [Village_Id], 
+    [View_Userdownload_HCTClientCard].[Village_Name] AS [Village_Name], 
+    [View_Userdownload_HCTClientCard].[ClientName] AS [ClientName], 
+    [View_Userdownload_HCTClientCard].[Sex] AS [Sex], 
+    [View_Userdownload_HCTClientCard].[Age] AS [Age], 
+    [View_Userdownload_HCTClientCard].[Tel] AS [Tel], 
+    [View_Userdownload_HCTClientCard].[HotspotName] AS [HotspotName], 
+    [View_Userdownload_HCTClientCard].[ContactAddress] AS [ContactAddress], 
+    [View_Userdownload_HCTClientCard].[NameHealth] AS [NameHealth], 
+    [View_Userdownload_HCTClientCard].[HSD] AS [HSD], 
+    [View_Userdownload_HCTClientCard].[HealthCentre_District] AS [HealthCentre_District], 
+    [View_Userdownload_HCTClientCard].[Center_OutReach] AS [Center_OutReach], 
+    [View_Userdownload_HCTClientCard].[TestPoint] AS [TestPoint], 
+    [View_Userdownload_HCTClientCard].[Relation_to_HH_Head] AS [Relation_to_HH_Head], 
+    [View_Userdownload_HCTClientCard].[HIV_TestingModalities] AS [HIV_TestingModalities], 
+    [View_Userdownload_HCTClientCard].[HIV_TestingModalitiesSpecify] AS [HIV_TestingModalitiesSpecify], 
+    [View_Userdownload_HCTClientCard].[Specify] AS [Specify], 
+    [View_Userdownload_HCTClientCard].[PretestDone] AS [PretestDone], 
+    [View_Userdownload_HCTClientCard].[HTC_Entry_Points] AS [HTC_Entry_Points], 
+    [View_Userdownload_HCTClientCard].[HTC_Entry_Points_Specify] AS [HTC_Entry_Points_Specify], 
+    [View_Userdownload_HCTClientCard].[Counseled] AS [Counseled], 
+    [View_Userdownload_HCTClientCard].[ApproachUsed] AS [ApproachUsed], 
+    [View_Userdownload_HCTClientCard].[MaritalStatus] AS [MaritalStatus], 
+    [View_Userdownload_HCTClientCard].[SexualPartners] AS [SexualPartners], 
+    [View_Userdownload_HCTClientCard].[EverTested] AS [EverTested], 
+    [View_Userdownload_HCTClientCard].[PreviouslyTested] AS [PreviouslyTested], 
+    [View_Userdownload_HCTClientCard].[Results_3_Months] AS [Results_3_Months], 
+    [View_Userdownload_HCTClientCard].[Results_6_Months] AS [Results_6_Months], 
+    [View_Userdownload_HCTClientCard].[Results_12_Months] AS [Results_12_Months], 
+    [View_Userdownload_HCTClientCard].[SpouseTested_B4] AS [SpouseTested_B4], 
+    [View_Userdownload_HCTClientCard].[If_Yes_Results] AS [If_Yes_Results], 
+    [View_Userdownload_HCTClientCard].[ClientDate] AS [ClientDate], 
+    [View_Userdownload_HCTClientCard].[Client_SerialNo] AS [Client_SerialNo], 
+    [View_Userdownload_HCTClientCard].[ClientName_2] AS [ClientName_2], 
+    [View_Userdownload_HCTClientCard].[ClientSex] AS [ClientSex], 
+    [View_Userdownload_HCTClientCard].[ClientAge] AS [ClientAge], 
+    [View_Userdownload_HCTClientCard].[ClientDistrict] AS [ClientDistrict], 
+    [View_Userdownload_HCTClientCard].[HealthFacility] AS [HealthFacility], 
+    [View_Userdownload_HCTClientCard].[Client_Test_Results] AS [Client_Test_Results], 
+    [View_Userdownload_HCTClientCard].[ReferralNotes] AS [ReferralNotes], 
+    [View_Userdownload_HCTClientCard].[CounselorName] AS [CounselorName], 
+    [View_Userdownload_HCTClientCard].[CounselorDate] AS [CounselorDate], 
+    [View_Userdownload_HCTClientCard].[Consent] AS [Consent], 
+    [View_Userdownload_HCTClientCard].[ConsentDate] AS [ConsentDate], 
+    [View_Userdownload_HCTClientCard].[TestResults] AS [TestResults], 
+    [View_Userdownload_HCTClientCard].[TestDoneBy] AS [TestDoneBy], 
+    [View_Userdownload_HCTClientCard].[TestDoneDate] AS [TestDoneDate], 
+    [View_Userdownload_HCTClientCard].[ResultsReceived] AS [ResultsReceived], 
+    [View_Userdownload_HCTClientCard].[ResultsReceivedCouple] AS [ResultsReceivedCouple], 
+    [View_Userdownload_HCTClientCard].[CoupleResults] AS [CoupleResults], 
+    [View_Userdownload_HCTClientCard].[Suspicion_of_TB] AS [Suspicion_of_TB], 
+    [View_Userdownload_HCTClientCard].[CotrimoxazoleProphylaxis] AS [CotrimoxazoleProphylaxis], 
+    [View_Userdownload_HCTClientCard].[Linked] AS [Linked], 
+    [View_Userdownload_HCTClientCard].[ResultsCounselorName] AS [ResultsCounselorName], 
+    [View_Userdownload_HCTClientCard].[ResultsDate] AS [ResultsDate], 
+    [View_Userdownload_HCTClientCard].[DateUploaded] AS [DateUploaded], 
+    [View_Userdownload_HCTClientCard].[UploadedBy] AS [UploadedBy], 
+    [View_Userdownload_HCTClientCard].[DateEdited] AS [DateEdited], 
+    [View_Userdownload_HCTClientCard].[EditedBy] AS [EditedBy], 
+    [View_Userdownload_HCTClientCard].[DateDeleted] AS [DateDeleted], 
+    [View_Userdownload_HCTClientCard].[DeletedBy] AS [DeletedBy]
+    FROM [dbo].[View_Userdownload_HCTClientCard] AS [View_Userdownload_HCTClientCard]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Userdownload_HivPrevention_Services" EntityType="Self.View_Userdownload_HivPrevention_Services" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Userdownload_HivPrevention_Services].[ClientCode] AS [ClientCode], 
+    [View_Userdownload_HivPrevention_Services].[Date_of_Followup] AS [Date_of_Followup], 
+    [View_Userdownload_HivPrevention_Services].[Date_of_Registration] AS [Date_of_Registration], 
+    [View_Userdownload_HivPrevention_Services].[District_Id] AS [District_Id], 
+    [View_Userdownload_HivPrevention_Services].[District_Name] AS [District_Name], 
+    [View_Userdownload_HivPrevention_Services].[County_Id] AS [County_Id], 
+    [View_Userdownload_HivPrevention_Services].[County_Name] AS [County_Name], 
+    [View_Userdownload_HivPrevention_Services].[Subcounty_Id] AS [Subcounty_Id], 
+    [View_Userdownload_HivPrevention_Services].[Subcounty_Name] AS [Subcounty_Name], 
+    [View_Userdownload_HivPrevention_Services].[Parish_Id] AS [Parish_Id], 
+    [View_Userdownload_HivPrevention_Services].[Parish_Name] AS [Parish_Name], 
+    [View_Userdownload_HivPrevention_Services].[Village_Id] AS [Village_Id], 
+    [View_Userdownload_HivPrevention_Services].[Village_Name] AS [Village_Name], 
+    [View_Userdownload_HivPrevention_Services].[HotspotName] AS [HotspotName], 
+    [View_Userdownload_HivPrevention_Services].[Location] AS [Location], 
+    [View_Userdownload_HivPrevention_Services].[ContactAddress] AS [ContactAddress], 
+    [View_Userdownload_HivPrevention_Services].[BeneficaryName] AS [BeneficaryName], 
+    [View_Userdownload_HivPrevention_Services].[Sex] AS [Sex], 
+    [View_Userdownload_HivPrevention_Services].[Nation] AS [Nation], 
+    [View_Userdownload_HivPrevention_Services].[DoB] AS [DoB], 
+    [View_Userdownload_HivPrevention_Services].[Age] AS [Age], 
+    [View_Userdownload_HivPrevention_Services].[Tel] AS [Tel], 
+    [View_Userdownload_HivPrevention_Services].[Facility] AS [Facility], 
+    [View_Userdownload_HivPrevention_Services].[FacilityLevel] AS [FacilityLevel], 
+    [View_Userdownload_HivPrevention_Services].[MaritalStatus] AS [MaritalStatus], 
+    [View_Userdownload_HivPrevention_Services].[ClientCategory] AS [ClientCategory], 
+    [View_Userdownload_HivPrevention_Services].[ClientCategory_Specify] AS [ClientCategory_Specify], 
+    [View_Userdownload_HivPrevention_Services].[ServicePointType] AS [ServicePointType], 
+    [View_Userdownload_HivPrevention_Services].[ServicePointName] AS [ServicePointName], 
+    [View_Userdownload_HivPrevention_Services].[ServicePointName_Specify] AS [ServicePointName_Specify], 
+    [View_Userdownload_HivPrevention_Services].[NextAppoitmentDate] AS [NextAppoitmentDate], 
+    [View_Userdownload_HivPrevention_Services].[HIV_Test_Results] AS [HIV_Test_Results], 
+    [View_Userdownload_HivPrevention_Services].[Date_ofHIV_Test_Results] AS [Date_ofHIV_Test_Results], 
+    [View_Userdownload_HivPrevention_Services].[STI_Syndrome] AS [STI_Syndrome], 
+    [View_Userdownload_HivPrevention_Services].[STI_Treatment] AS [STI_Treatment], 
+    [View_Userdownload_HivPrevention_Services].[Pregnant_Period] AS [Pregnant_Period], 
+    [View_Userdownload_HivPrevention_Services].[ANC_No] AS [ANC_No], 
+    [View_Userdownload_HivPrevention_Services].[FamilyPlanningMethod] AS [FamilyPlanningMethod], 
+    [View_Userdownload_HivPrevention_Services].[TB_Status] AS [TB_Status], 
+    [View_Userdownload_HivPrevention_Services].[TB_Rx_StartDate] AS [TB_Rx_StartDate], 
+    [View_Userdownload_HivPrevention_Services].[TB_Rx_EndDate] AS [TB_Rx_EndDate], 
+    [View_Userdownload_HivPrevention_Services].[District_TB_Reg_No] AS [District_TB_Reg_No], 
+    [View_Userdownload_HivPrevention_Services].[OtherPreventionServices] AS [OtherPreventionServices], 
+    [View_Userdownload_HivPrevention_Services].[VisitOutComes] AS [VisitOutComes], 
+    [View_Userdownload_HivPrevention_Services].[VisitOutComesSpecify] AS [VisitOutComesSpecify], 
+    [View_Userdownload_HivPrevention_Services].[Remarks] AS [Remarks], 
+    [View_Userdownload_HivPrevention_Services].[DateUploaded] AS [DateUploaded], 
+    [View_Userdownload_HivPrevention_Services].[UploadedBy] AS [UploadedBy], 
+    [View_Userdownload_HivPrevention_Services].[DateEdited] AS [DateEdited], 
+    [View_Userdownload_HivPrevention_Services].[EditedBy] AS [EditedBy], 
+    [View_Userdownload_HivPrevention_Services].[DateDeleted] AS [DateDeleted], 
+    [View_Userdownload_HivPrevention_Services].[DeletedBy] AS [DeletedBy]
+    FROM [dbo].[View_Userdownload_HivPrevention_Services] AS [View_Userdownload_HivPrevention_Services]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Userdownload_LMB_Form_SW123" EntityType="Self.View_Userdownload_LMB_Form_SW123" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Userdownload_LMB_Form_SW123].[ClientCode] AS [ClientCode], 
+    [View_Userdownload_LMB_Form_SW123].[SW123_Date] AS [SW123_Date], 
+    [View_Userdownload_LMB_Form_SW123].[District_Id] AS [District_Id], 
+    [View_Userdownload_LMB_Form_SW123].[District_Name] AS [District_Name], 
+    [View_Userdownload_LMB_Form_SW123].[County_Id] AS [County_Id], 
+    [View_Userdownload_LMB_Form_SW123].[County_Name] AS [County_Name], 
+    [View_Userdownload_LMB_Form_SW123].[Subcounty_Id] AS [Subcounty_Id], 
+    [View_Userdownload_LMB_Form_SW123].[Subcounty_Name] AS [Subcounty_Name], 
+    [View_Userdownload_LMB_Form_SW123].[Parish_Id] AS [Parish_Id], 
+    [View_Userdownload_LMB_Form_SW123].[Parish_Name] AS [Parish_Name], 
+    [View_Userdownload_LMB_Form_SW123].[Village_Id] AS [Village_Id], 
+    [View_Userdownload_LMB_Form_SW123].[Village_Name] AS [Village_Name], 
+    [View_Userdownload_LMB_Form_SW123].[BeneficaryName] AS [BeneficaryName], 
+    [View_Userdownload_LMB_Form_SW123].[Sex] AS [Sex], 
+    [View_Userdownload_LMB_Form_SW123].[Age] AS [Age], 
+    [View_Userdownload_LMB_Form_SW123].[Tel] AS [Tel], 
+    [View_Userdownload_LMB_Form_SW123].[HotspotName] AS [HotspotName], 
+    [View_Userdownload_LMB_Form_SW123].[ContactAddress] AS [ContactAddress], 
+    [View_Userdownload_LMB_Form_SW123].[Stigma] AS [Stigma], 
+    [View_Userdownload_LMB_Form_SW123].[Mistreat] AS [Mistreat], 
+    [View_Userdownload_LMB_Form_SW123].[ExperiencedViolence] AS [ExperiencedViolence], 
+    [View_Userdownload_LMB_Form_SW123].[PoliceHarassment] AS [PoliceHarassment], 
+    [View_Userdownload_LMB_Form_SW123].[TreatedUnfair] AS [TreatedUnfair], 
+    [View_Userdownload_LMB_Form_SW123].[Abused_Mocked] AS [Abused_Mocked], 
+    [View_Userdownload_LMB_Form_SW123].[DeniedService] AS [DeniedService], 
+    [View_Userdownload_LMB_Form_SW123].[SeparatedFromOtherPatient] AS [SeparatedFromOtherPatient], 
+    [View_Userdownload_LMB_Form_SW123].[UnwantedPregnancy] AS [UnwantedPregnancy], 
+    [View_Userdownload_LMB_Form_SW123].[Reason4CondomUse] AS [Reason4CondomUse], 
+    [View_Userdownload_LMB_Form_SW123].[HIV_Protection] AS [HIV_Protection], 
+    [View_Userdownload_LMB_Form_SW123].[CondomUsedRecently] AS [CondomUsedRecently], 
+    [View_Userdownload_LMB_Form_SW123].[DateUploaded] AS [DateUploaded], 
+    [View_Userdownload_LMB_Form_SW123].[UploadedBy] AS [UploadedBy], 
+    [View_Userdownload_LMB_Form_SW123].[DateEdited] AS [DateEdited], 
+    [View_Userdownload_LMB_Form_SW123].[EditedBy] AS [EditedBy], 
+    [View_Userdownload_LMB_Form_SW123].[DateDeleted] AS [DateDeleted], 
+    [View_Userdownload_LMB_Form_SW123].[DeletedBy] AS [DeletedBy]
+    FROM [dbo].[View_Userdownload_LMB_Form_SW123] AS [View_Userdownload_LMB_Form_SW123]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Userdownload_MemberShipForm" EntityType="Self.View_Userdownload_MemberShipForm" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Userdownload_MemberShipForm].[PersonCode] AS [PersonCode], 
+    [View_Userdownload_MemberShipForm].[FormDate] AS [FormDate], 
+    [View_Userdownload_MemberShipForm].[EnrollmentDate] AS [EnrollmentDate], 
+    [View_Userdownload_MemberShipForm].[MemberShipDate] AS [MemberShipDate], 
+    [View_Userdownload_MemberShipForm].[District_Id] AS [District_Id], 
+    [View_Userdownload_MemberShipForm].[District_Name] AS [District_Name], 
+    [View_Userdownload_MemberShipForm].[County_Id] AS [County_Id], 
+    [View_Userdownload_MemberShipForm].[County_Name] AS [County_Name], 
+    [View_Userdownload_MemberShipForm].[Subcounty_Name] AS [Subcounty_Name], 
+    [View_Userdownload_MemberShipForm].[Subcounty_Id] AS [Subcounty_Id], 
+    [View_Userdownload_MemberShipForm].[Parish_Id] AS [Parish_Id], 
+    [View_Userdownload_MemberShipForm].[Parish_Name] AS [Parish_Name], 
+    [View_Userdownload_MemberShipForm].[Village_Id] AS [Village_Id], 
+    [View_Userdownload_MemberShipForm].[Village_Name] AS [Village_Name], 
+    [View_Userdownload_MemberShipForm].[BeneficaryName] AS [BeneficaryName], 
+    [View_Userdownload_MemberShipForm].[AnySkills] AS [AnySkills], 
+    [View_Userdownload_MemberShipForm].[Attachments] AS [Attachments], 
+    [View_Userdownload_MemberShipForm].[HotspotName] AS [HotspotName], 
+    [View_Userdownload_MemberShipForm].[Sex] AS [Sex], 
+    [View_Userdownload_MemberShipForm].[MaritalStatus] AS [MaritalStatus], 
+    [View_Userdownload_MemberShipForm].[Photo] AS [Photo], 
+    [View_Userdownload_MemberShipForm].[Nation] AS [Nation], 
+    [View_Userdownload_MemberShipForm].[DoB] AS [DoB], 
+    [View_Userdownload_MemberShipForm].[ContactAddress] AS [ContactAddress], 
+    [View_Userdownload_MemberShipForm].[Age] AS [Age], 
+    [View_Userdownload_MemberShipForm].[MemberStatus] AS [MemberStatus], 
+    [View_Userdownload_MemberShipForm].[TimeSpent_Residence] AS [TimeSpent_Residence], 
+    [View_Userdownload_MemberShipForm].[WorkEmployer] AS [WorkEmployer], 
+    [View_Userdownload_MemberShipForm].[Tel] AS [Tel], 
+    [View_Userdownload_MemberShipForm].[Other_Tel] AS [Other_Tel], 
+    [View_Userdownload_MemberShipForm].[Expectations] AS [Expectations], 
+    [View_Userdownload_MemberShipForm].[Witness] AS [Witness], 
+    [View_Userdownload_MemberShipForm].[DateUploaded] AS [DateUploaded], 
+    [View_Userdownload_MemberShipForm].[UploadedBy] AS [UploadedBy], 
+    [View_Userdownload_MemberShipForm].[DateEdited] AS [DateEdited], 
+    [View_Userdownload_MemberShipForm].[EditedBy] AS [EditedBy], 
+    [View_Userdownload_MemberShipForm].[DateDeleted] AS [DateDeleted], 
+    [View_Userdownload_MemberShipForm].[DeletedBy] AS [DeletedBy], 
+    [View_Userdownload_MemberShipForm].[Doc_Details] AS [Doc_Details], 
+    [View_Userdownload_MemberShipForm].[Doc] AS [Doc]
+    FROM [dbo].[View_Userdownload_MemberShipForm] AS [View_Userdownload_MemberShipForm]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="View_Userdownload_Referral" EntityType="Self.View_Userdownload_Referral" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_Userdownload_Referral].[ClientCode] AS [ClientCode], 
+    [View_Userdownload_Referral].[Referral_Date] AS [Referral_Date], 
+    [View_Userdownload_Referral].[SerialNumber] AS [SerialNumber], 
+    [View_Userdownload_Referral].[District_Id] AS [District_Id], 
+    [View_Userdownload_Referral].[District_Name] AS [District_Name], 
+    [View_Userdownload_Referral].[County_Id] AS [County_Id], 
+    [View_Userdownload_Referral].[County_Name] AS [County_Name], 
+    [View_Userdownload_Referral].[Subcounty_Id] AS [Subcounty_Id], 
+    [View_Userdownload_Referral].[Subcounty_Name] AS [Subcounty_Name], 
+    [View_Userdownload_Referral].[Parish_Id] AS [Parish_Id], 
+    [View_Userdownload_Referral].[Parish_Name] AS [Parish_Name], 
+    [View_Userdownload_Referral].[Village_Id] AS [Village_Id], 
+    [View_Userdownload_Referral].[Village_Name] AS [Village_Name], 
+    [View_Userdownload_Referral].[BeneficaryName] AS [BeneficaryName], 
+    [View_Userdownload_Referral].[Sex] AS [Sex], 
+    [View_Userdownload_Referral].[Age] AS [Age], 
+    [View_Userdownload_Referral].[ClientType] AS [ClientType], 
+    [View_Userdownload_Referral].[Tel] AS [Tel], 
+    [View_Userdownload_Referral].[HotspotName] AS [HotspotName], 
+    [View_Userdownload_Referral].[ContactAddress] AS [ContactAddress], 
+    [View_Userdownload_Referral].[Facility] AS [Facility], 
+    [View_Userdownload_Referral].[FacilityContact] AS [FacilityContact], 
+    [View_Userdownload_Referral].[Facility_District] AS [Facility_District], 
+    [View_Userdownload_Referral].[FacilityCounty] AS [FacilityCounty], 
+    [View_Userdownload_Referral].[Facility_Subcounty] AS [Facility_Subcounty], 
+    [View_Userdownload_Referral].[Referral_Reasons] AS [Referral_Reasons], 
+    [View_Userdownload_Referral].[Referral_Reasons_Others] AS [Referral_Reasons_Others], 
+    [View_Userdownload_Referral].[Referring_Peer_Leader] AS [Referring_Peer_Leader], 
+    [View_Userdownload_Referral].[Peer_Leader_Tel] AS [Peer_Leader_Tel], 
+    [View_Userdownload_Referral].[HealthWorkerName] AS [HealthWorkerName], 
+    [View_Userdownload_Referral].[HealthWorker_Tel] AS [HealthWorker_Tel], 
+    [View_Userdownload_Referral].[HealthWorkerDesignation] AS [HealthWorkerDesignation], 
+    [View_Userdownload_Referral].[FeedBack_ClientName] AS [FeedBack_ClientName], 
+    [View_Userdownload_Referral].[FeedBack_SerialNumber] AS [FeedBack_SerialNumber], 
+    [View_Userdownload_Referral].[FeedBack_IdentifierNumber] AS [FeedBack_IdentifierNumber], 
+    [View_Userdownload_Referral].[FeedBack_ServicesGiven] AS [FeedBack_ServicesGiven], 
+    [View_Userdownload_Referral].[FeedBack_FacilityName] AS [FeedBack_FacilityName], 
+    [View_Userdownload_Referral].[FeedBack_FollowUp_Needed] AS [FeedBack_FollowUp_Needed], 
+    [View_Userdownload_Referral].[FeedBack_Name_of_FacilityWorker] AS [FeedBack_Name_of_FacilityWorker], 
+    [View_Userdownload_Referral].[FeedBack_Date] AS [FeedBack_Date], 
+    [View_Userdownload_Referral].[DateUploaded] AS [DateUploaded], 
+    [View_Userdownload_Referral].[UploadedBy] AS [UploadedBy], 
+    [View_Userdownload_Referral].[DateEdited] AS [DateEdited], 
+    [View_Userdownload_Referral].[EditedBy] AS [EditedBy], 
+    [View_Userdownload_Referral].[DateDeleted] AS [DateDeleted], 
+    [View_Userdownload_Referral].[DeletedBy] AS [DeletedBy]
+    FROM [dbo].[View_Userdownload_Referral] AS [View_Userdownload_Referral]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_A_District_A_Region" Association="Self.FK_A_District_A_Region">
+      <End Role="A_Region" EntitySet="A_Region" />
+      <End Role="A_District" EntitySet="A_District" />
+    </AssociationSet>
+    <AssociationSet Name="FK_A_Stigma_Indicator_1_A_Stigma_Indicator" Association="Self.FK_A_Stigma_Indicator_1_A_Stigma_Indicator">
+      <End Role="A_Stigma_Indicator" EntitySet="A_Stigma_Indicator" />
+      <End Role="A_Stigma_Indicator_1" EntitySet="A_Stigma_Indicator_1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_A_Village_A_Parish" Association="Self.FK_A_Village_A_Parish">
+      <End Role="A_Parish" EntitySet="A_Parish" />
+      <End Role="A_Village" EntitySet="A_Village" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_ClientCategory_2" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_ClientCategory_2">
+      <End Role="A_ClientCategory_2" EntitySet="A_ClientCategory_2" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_District" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_District">
+      <End Role="A_District" EntitySet="A_District" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_Education_level" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_Education_level">
+      <End Role="A_Education_level" EntitySet="A_Education_level" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_Facility" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_Facility">
+      <End Role="A_Facility" EntitySet="A_Facility" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_FacilityLevel" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_FacilityLevel">
+      <End Role="A_FacilityLevel" EntitySet="A_FacilityLevel" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_HIVResults" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_HIVResults">
+      <End Role="A_HIVResults" EntitySet="A_HIVResults" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_MaritalStatus" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_MaritalStatus">
+      <End Role="A_MaritalStatus" EntitySet="A_MaritalStatus" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_PopulationCategory" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_PopulationCategory">
+      <End Role="A_PopulationCategory" EntitySet="A_PopulationCategory" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_RelationShip_Person_DisclosedTo" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_RelationShip_Person_DisclosedTo">
+      <End Role="A_RelationShip_Person_DisclosedTo" EntitySet="A_RelationShip_Person_DisclosedTo" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_Religion" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_Religion">
+      <End Role="A_Religion" EntitySet="A_Religion" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_ServicePointName" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_ServicePointName">
+      <End Role="A_ServicePointName" EntitySet="A_ServicePointName" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_Sex" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_Sex">
+      <End Role="A_Sex" EntitySet="A_Sex" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_Subcounty" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_Subcounty">
+      <End Role="A_Subcounty" EntitySet="A_Subcounty" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_YesNo" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_YesNo">
+      <End Role="A_YesNo" EntitySet="A_YesNo" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_A_YesNo1" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_A_YesNo1">
+      <End Role="A_YesNo" EntitySet="A_YesNo" />
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_AdherenceLevel" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_AdherenceLevel">
+      <End Role="A_AdherenceLevel" EntitySet="A_AdherenceLevel" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_ARTStatus_2" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_ARTStatus_2">
+      <End Role="A_ARTStatus_2" EntitySet="A_ARTStatus_2" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_DSDM_Approach" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_DSDM_Approach">
+      <End Role="A_DSDM_Approach" EntitySet="A_DSDM_Approach" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_FamilyPlanning" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_FamilyPlanning">
+      <End Role="A_FamilyPlanning" EntitySet="A_FamilyPlanning" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_HIVResults" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_HIVResults">
+      <End Role="A_HIVResults" EntitySet="A_HIVResults" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_HIVStatus" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_HIVStatus">
+      <End Role="A_HIVStatus" EntitySet="A_HIVStatus" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_HIVTestingModalities" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_HIVTestingModalities">
+      <End Role="A_HIVTestingModalities" EntitySet="A_HIVTestingModalities" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_MedicalAssistedTherapy" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_MedicalAssistedTherapy">
+      <End Role="A_MedicalAssistedTherapy" EntitySet="A_MedicalAssistedTherapy" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_OutComes" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_OutComes">
+      <End Role="A_OutComes" EntitySet="A_OutComes" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_PostViolenceCare" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_PostViolenceCare">
+      <End Role="A_PostViolenceCare" EntitySet="A_PostViolenceCare" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_STISyndrome" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_STISyndrome">
+      <End Role="A_STISyndrome" EntitySet="A_STISyndrome" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_SyphilisStatus" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_SyphilisStatus">
+      <End Role="A_SyphilisStatus" EntitySet="A_SyphilisStatus" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_TB_Status" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_TB_Status">
+      <End Role="A_TB_Status" EntitySet="A_TB_Status" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo">
+      <End Role="A_YesNo" EntitySet="A_YesNo" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo1" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo1">
+      <End Role="A_YesNo" EntitySet="A_YesNo" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo2" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo2">
+      <End Role="A_YesNo" EntitySet="A_YesNo" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo3" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo3">
+      <End Role="A_YesNo" EntitySet="A_YesNo" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo4" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_A_YesNo4">
+      <End Role="A_YesNo" EntitySet="A_YesNo" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Core_HIVPreventionServicesTrackingForm_Details_Core_HIVPreventionServicesTrackingForm" Association="Self.FK_Core_HIVPreventionServicesTrackingForm_Details_Core_HIVPreventionServicesTrackingForm">
+      <End Role="Core_HIVPreventionServicesTrackingForm" EntitySet="Core_HIVPreventionServicesTrackingForm" />
+      <End Role="Core_HIVPreventionServicesTrackingForm_Details" EntitySet="Core_HIVPreventionServicesTrackingForm_Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

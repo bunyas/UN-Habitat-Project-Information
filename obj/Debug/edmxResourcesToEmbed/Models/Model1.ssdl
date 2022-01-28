@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="procrecordfilesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="A_Month">
+    <Key>
+      <PropertyRef Name="month_id" />
+    </Key>
+    <Property Name="month_id" Type="int" Nullable="false" />
+    <Property Name="month_desc" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="int" Nullable="false" />
+    <Property Name="filetype" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="files">
+    <Key>
+      <PropertyRef Name="refno" />
+    </Key>
+    <Property Name="fname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fid" Type="int" Nullable="false" />
+    <Property Name="refno" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="subjectofproc" Type="nvarchar" MaxLength="50" />
+    <Property Name="contractamount" Type="float" />
+    <Property Name="estimatedamount" Type="float" />
+    <Property Name="capturedy" Type="int" Nullable="false" />
+    <Property Name="issuedby" Type="int" Nullable="false" />
+    <Property Name="editedby" Type="int" Nullable="false" />
+    <Property Name="captureddate" Type="datetime" Nullable="false" />
+    <Property Name="issueddate" Type="datetime" />
+    <Property Name="editeddate" Type="datetime" />
+    <Property Name="dateofcollection" Type="datetime" />
+  </EntityType>
+  <EntityType Name="records">
+    <Key>
+      <PropertyRef Name="refno" />
+    </Key>
+    <Property Name="refno" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dateofbidopening" Type="datetime" />
+    <Property Name="dateofevaluation" Type="datetime" />
+    <Property Name="endofevaluationdate" Type="datetime" />
+    <Property Name="dateofbidexpirey" Type="datetime" />
+    <Property Name="dateofbidsecurityexpirey" Type="datetime" />
+    <Property Name="contractsignaturedate" Type="datetime" />
+    <Property Name="dateofcontractexpirey" Type="datetime" />
+    <Property Name="dateofbidcollection" Type="datetime" />
+    <Property Name="dateofbidsubmission" Type="datetime" />
+    <Property Name="signedby" Type="int" Nullable="false" />
+    <Property Name="fid" Type="int" Nullable="false" />
+    <Property Name="Status_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="staff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
+    <Property Name="positionname" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'procrecordfiles.dbo.vews' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vews">
+    <Key>
+      <PropertyRef Name="fid" />
+    </Key>
+    <Property Name="fid" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="filetype" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_files_staff">
+    <End Role="staff" Type="Self.staff" Multiplicity="1" />
+    <End Role="files" Type="Self.files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="files">
+        <PropertyRef Name="capturedy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_files_staff1">
+    <End Role="staff" Type="Self.staff" Multiplicity="1" />
+    <End Role="files" Type="Self.files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="files">
+        <PropertyRef Name="issuedby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_files_staff2">
+    <End Role="staff" Type="Self.staff" Multiplicity="1" />
+    <End Role="files" Type="Self.files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="files">
+        <PropertyRef Name="editedby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_records_A_Status">
+    <End Role="A_Status" Type="Self.A_Status" Multiplicity="0..1" />
+    <End Role="records" Type="Self.records" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_Status">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="records">
+        <PropertyRef Name="Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_records_category">
+    <End Role="category" Type="Self.category" Multiplicity="1" />
+    <End Role="records" Type="Self.records" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="category">
+        <PropertyRef Name="fid" />
+      </Principal>
+      <Dependent Role="records">
+        <PropertyRef Name="fid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_records_files">
+    <End Role="files" Type="Self.files" Multiplicity="1" />
+    <End Role="records" Type="Self.records" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="files">
+        <PropertyRef Name="refno" />
+      </Principal>
+      <Dependent Role="records">
+        <PropertyRef Name="refno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_records_staff">
+    <End Role="staff" Type="Self.staff" Multiplicity="1" />
+    <End Role="records" Type="Self.records" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="records">
+        <PropertyRef Name="signedby" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sprecordsGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sdate" Type="datetime" Mode="In" />
+    <Parameter Name="edate" Type="datetime" Mode="In" />
+    <Parameter Name="refno" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="spView_procrecords" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="sdate" Type="datetime" Mode="In" />
+    <Parameter Name="edate" Type="datetime" Mode="In" />
+    <Parameter Name="refno" Type="nvarchar" Mode="In" />
+    <Parameter Name="staff" Type="int" Mode="In" />
+  </Function>
+  <Function Name="spView_procrecords_RECORDS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AA" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="procrecordfilesModelStoreContainer">
+    <EntitySet Name="A_Month" EntityType="Self.A_Month" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Status" EntityType="Self.A_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="files" EntityType="Self.files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="records" EntityType="Self.records" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="staff" EntityType="Self.staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vews" EntityType="Self.vews" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vews].[fid] AS [fid], 
+    [vews].[filetype] AS [filetype]
+    FROM [dbo].[vews] AS [vews]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_files_staff" Association="Self.FK_files_staff">
+      <End Role="staff" EntitySet="staff" />
+      <End Role="files" EntitySet="files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_files_staff1" Association="Self.FK_files_staff1">
+      <End Role="staff" EntitySet="staff" />
+      <End Role="files" EntitySet="files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_files_staff2" Association="Self.FK_files_staff2">
+      <End Role="staff" EntitySet="staff" />
+      <End Role="files" EntitySet="files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_records_A_Status" Association="Self.FK_records_A_Status">
+      <End Role="A_Status" EntitySet="A_Status" />
+      <End Role="records" EntitySet="records" />
+    </AssociationSet>
+    <AssociationSet Name="FK_records_category" Association="Self.FK_records_category">
+      <End Role="category" EntitySet="category" />
+      <End Role="records" EntitySet="records" />
+    </AssociationSet>
+    <AssociationSet Name="FK_records_files" Association="Self.FK_records_files">
+      <End Role="files" EntitySet="files" />
+      <End Role="records" EntitySet="records" />
+    </AssociationSet>
+    <AssociationSet Name="FK_records_staff" Association="Self.FK_records_staff">
+      <End Role="staff" EntitySet="staff" />
+      <End Role="records" EntitySet="records" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

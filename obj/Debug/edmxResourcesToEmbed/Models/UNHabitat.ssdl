@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UNHabitat_ProjectsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="A_ApprovalStatus">
+    <Key>
+      <PropertyRef Name="ApprovalStatusID" />
+    </Key>
+    <Property Name="ApprovalStatusID" Type="int" Nullable="false" />
+    <Property Name="ApprovalStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_Donor">
+    <Key>
+      <PropertyRef Name="DonorID" />
+    </Key>
+    <Property Name="DonorID" Type="int" Nullable="false" />
+    <Property Name="Donor" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="A_Fund">
+    <Key>
+      <PropertyRef Name="FundID" />
+    </Key>
+    <Property Name="FundID" Type="int" Nullable="false" />
+    <Property Name="Fund" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="A_LeadOrgUnit">
+    <Key>
+      <PropertyRef Name="LeadOrgUnitID" />
+    </Key>
+    <Property Name="LeadOrgUnitID" Type="int" Nullable="false" />
+    <Property Name="LeadOrgUnit" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="A_Theme">
+    <Key>
+      <PropertyRef Name="ThemeID" />
+    </Key>
+    <Property Name="ThemeID" Type="int" Nullable="false" />
+    <Property Name="Theme" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="UNHabitatProjects">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+    <Property Name="ProjectTitle" Type="nvarchar" MaxLength="500" />
+    <Property Name="PAASCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApprovalStatusID" Type="int" />
+    <Property Name="FundID" Type="int" />
+    <Property Name="PAGValue" Type="nvarchar" MaxLength="50" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="Country" Type="nvarchar" MaxLength="500" />
+    <Property Name="LeadOrgUnitID" Type="int" />
+    <Property Name="Theme" Type="nvarchar" MaxLength="500" />
+    <Property Name="Donor" Type="nvarchar" MaxLength="500" />
+    <Property Name="TotalExpenditure" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalContribution" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalContribution_TotalExpenditure" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalPSC" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeletedRecord" Type="int" />
+    <Property Name="AddedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateAdded" Type="datetime" />
+    <Property Name="DateEdited" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDeleted" Type="datetime" />
+    <Property Name="DeletedBy" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <Association Name="FK_UNHabitatProjects_A_ApprovalStatus">
+    <End Role="A_ApprovalStatus" Type="Self.A_ApprovalStatus" Multiplicity="0..1" />
+    <End Role="UNHabitatProjects" Type="Self.UNHabitatProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_ApprovalStatus">
+        <PropertyRef Name="ApprovalStatusID" />
+      </Principal>
+      <Dependent Role="UNHabitatProjects">
+        <PropertyRef Name="ApprovalStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UNHabitatProjects_A_Fund">
+    <End Role="A_Fund" Type="Self.A_Fund" Multiplicity="0..1" />
+    <End Role="UNHabitatProjects" Type="Self.UNHabitatProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_Fund">
+        <PropertyRef Name="FundID" />
+      </Principal>
+      <Dependent Role="UNHabitatProjects">
+        <PropertyRef Name="FundID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UNHabitatProjects_A_LeadOrgUnit">
+    <End Role="A_LeadOrgUnit" Type="Self.A_LeadOrgUnit" Multiplicity="0..1" />
+    <End Role="UNHabitatProjects" Type="Self.UNHabitatProjects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A_LeadOrgUnit">
+        <PropertyRef Name="LeadOrgUnitID" />
+      </Principal>
+      <Dependent Role="UNHabitatProjects">
+        <PropertyRef Name="LeadOrgUnitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UNHabitat_ProjectsModelStoreContainer">
+    <EntitySet Name="A_ApprovalStatus" EntityType="Self.A_ApprovalStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Country" EntityType="Self.A_Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Donor" EntityType="Self.A_Donor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Fund" EntityType="Self.A_Fund" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_LeadOrgUnit" EntityType="Self.A_LeadOrgUnit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="A_Theme" EntityType="Self.A_Theme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UNHabitatProjects" EntityType="Self.UNHabitatProjects" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_UNHabitatProjects_A_ApprovalStatus" Association="Self.FK_UNHabitatProjects_A_ApprovalStatus">
+      <End Role="A_ApprovalStatus" EntitySet="A_ApprovalStatus" />
+      <End Role="UNHabitatProjects" EntitySet="UNHabitatProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UNHabitatProjects_A_Fund" Association="Self.FK_UNHabitatProjects_A_Fund">
+      <End Role="A_Fund" EntitySet="A_Fund" />
+      <End Role="UNHabitatProjects" EntitySet="UNHabitatProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UNHabitatProjects_A_LeadOrgUnit" Association="Self.FK_UNHabitatProjects_A_LeadOrgUnit">
+      <End Role="A_LeadOrgUnit" EntitySet="A_LeadOrgUnit" />
+      <End Role="UNHabitatProjects" EntitySet="UNHabitatProjects" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

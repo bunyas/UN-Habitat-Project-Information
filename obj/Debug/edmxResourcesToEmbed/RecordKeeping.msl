@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="procrecordkeepingModelStoreContainer" CdmEntityContainer="procrecordkeepingEntities">
+    <EntitySetMapping Name="filecategories">
+      <EntityTypeMapping TypeName="procrecordkeepingModel.filecategory">
+        <MappingFragment StoreEntitySet="filecategory">
+          <ScalarProperty Name="fileid" ColumnName="fileid" />
+          <ScalarProperty Name="filecategorytype" ColumnName="filecategorytype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recordkeepings">
+      <EntityTypeMapping TypeName="procrecordkeepingModel.recordkeeping">
+        <MappingFragment StoreEntitySet="recordkeeping">
+          <ScalarProperty Name="refno" ColumnName="refno" />
+          <ScalarProperty Name="dateofevaluation" ColumnName="dateofevaluation" />
+          <ScalarProperty Name="endofevaluationdate" ColumnName="endofevaluationdate" />
+          <ScalarProperty Name="expireydate" ColumnName="expireydate" />
+          <ScalarProperty Name="securityexpireydate" ColumnName="securityexpireydate" />
+          <ScalarProperty Name="signaturedate" ColumnName="signaturedate" />
+          <ScalarProperty Name="signedby" ColumnName="signedby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transactions">
+      <EntityTypeMapping TypeName="procrecordkeepingModel.transaction">
+        <MappingFragment StoreEntitySet="transaction">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_RecordKeeping">
+      <EntityTypeMapping TypeName="procrecordkeepingModel.View_RecordKeeping">
+        <MappingFragment StoreEntitySet="View_RecordKeeping">
+          <ScalarProperty Name="fileid" ColumnName="fileid" />
+          <ScalarProperty Name="filecategorytype" ColumnName="filecategorytype" />
+          <ScalarProperty Name="refno" ColumnName="refno" />
+          <ScalarProperty Name="FieldID" ColumnName="FieldID" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="subjectofproc" ColumnName="subjectofproc" />
+          <ScalarProperty Name="contractamount" ColumnName="contractamount" />
+          <ScalarProperty Name="estimatedamount" ColumnName="estimatedamount" />
+          <ScalarProperty Name="dateofcollection" ColumnName="dateofcollection" />
+          <ScalarProperty Name="issuedby" ColumnName="issuedby" />
+          <ScalarProperty Name="capturedby" ColumnName="capturedby" />
+          <ScalarProperty Name="editedby" ColumnName="editedby" />
+          <ScalarProperty Name="editeddate" ColumnName="editeddate" />
+          <ScalarProperty Name="captureddate" ColumnName="captureddate" />
+          <ScalarProperty Name="issuedate" ColumnName="issuedate" />
+          <ScalarProperty Name="RecordKeepingRefNo" ColumnName="RecordKeepingRefNo" />
+          <ScalarProperty Name="dateofevaluation" ColumnName="dateofevaluation" />
+          <ScalarProperty Name="endofevaluationdate" ColumnName="endofevaluationdate" />
+          <ScalarProperty Name="expireydate" ColumnName="expireydate" />
+          <ScalarProperty Name="securityexpireydate" ColumnName="securityexpireydate" />
+          <ScalarProperty Name="signaturedate" ColumnName="signaturedate" />
+          <ScalarProperty Name="signedby" ColumnName="signedby" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="files">
+      <EntityTypeMapping TypeName="procrecordkeepingModel.file">
+        <MappingFragment StoreEntitySet="files">
+          <ScalarProperty Name="issuedate" ColumnName="issuedate" />
+          <ScalarProperty Name="captureddate" ColumnName="captureddate" />
+          <ScalarProperty Name="editeddate" ColumnName="editeddate" />
+          <ScalarProperty Name="editedby" ColumnName="editedby" />
+          <ScalarProperty Name="capturedby" ColumnName="capturedby" />
+          <ScalarProperty Name="issuedby" ColumnName="issuedby" />
+          <ScalarProperty Name="dateofcollection" ColumnName="dateofcollection" />
+          <ScalarProperty Name="estimatedamount" ColumnName="estimatedamount" />
+          <ScalarProperty Name="contractamount" ColumnName="contractamount" />
+          <ScalarProperty Name="subjectofproc" ColumnName="subjectofproc" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="fileid" ColumnName="fileid" />
+          <ScalarProperty Name="refno" ColumnName="refno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

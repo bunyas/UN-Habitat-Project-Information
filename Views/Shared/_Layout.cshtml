@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Lady Mermaid's Bureau Application</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/ej/web/bootstrap-theme/ej.web.all.min.css")
+    @Scripts.Render("~/Scripts/jquery-3.3.1.min.js")
+    @Scripts.Render("~/Scripts/jsrender.min.js")
+    @Scripts.Render("~/Scripts/ej/ej.web.all.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/ej/ej.unobtrusive.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+
+    @*@Styles.Render("~/Content/ej/web/flat-saffron/ej.web.all.min.css")*@
+
+    <style>
+        .container {
+            margin-left: 2%;
+            min-width: 97%;
+            width: 97%;
+            padding: 0px;
+            margin-right: 2%;
+        }
+
+        #Wrapper {
+            /*background-color: #3F51B5;*/
+            z-index: 1;
+            height: 500px;
+            width: 100%;
+            position: fixed;
+        }
+
+        #page-content-wrapper {
+            margin-left: 20px;
+            margin-right: 7px;
+        }
+    </style>
+    <style>
+        .panel-default > .panel-heading {
+            background-color: #0071bc /*#3e1111*/;
+            color: white;
+            /*font-size: 12px;*/
+            /*background-color:silver;*/
+            /*color: white;*/
+        }
+
+        .panel-default > .panel-collapse {
+            background-color: white /*#3e1111*/;
+            color: black;
+            /*font-size: 12px;*/
+            /*background-color:silver;*/
+            /*color: white;*/
+        }
+    </style>
+
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        @*@Html.Partial("_LoginPartial")*@
+
+        @Html.EJ().Menu("mainMenu").Items(items =>
+   {
+       items.Add().Url(Url.Action("ProjectInfo", "ProjectInfo")).Text("Project Information");
+      
+
+   }).EnableSeparator(false).CssClass("Black-Menu")
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="container body-content">
+            <hr />
+            <p>&copy; @DateTime.Now.Year - UNHabitat System <b style="float:right;">@DateTime.Now.ToLongDateString()  @DateTime.Now.ToShortTimeString()</b></p>
+
+        </div>
+    </footer>
+
+    @Html.EJ().ScriptManager()
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    
+    <style>
+        .e-grid .e-groupdroparea, /*GroupDropArea */
+        .e-grid .e-groupdroparea:hover, /*GroupDropArea Hover*/
+        .e-grid .e-cloneproperties, /*Column header clone during dragging header*/
+        .e-grid .e-groupheadercell:hover, /*HeaderCell in GroupDropArea*/
+        .e-grid td.e-active, /*During Row Selected*/
+        /*For pager items and their hover*/
+        .e-pager .e-currentitem,
+        .e-pager .e-currentitem:hover,
+        .e-pager .e-link:hover,
+        .e-pager .e-icon:hover {
+            background-color: #ea1b8d;
+        }
+
+        .e-grid .e-gridheader /*For line that separates the grid header and content*/ {
+            border-bottom-color: #ea1b8d;
+        }
+
+        .e-grid tr.e-hover /*For row hover*/ {
+            background-color: #e66aae;
+            color: #FFFFFF;
+        }
+
+        .e-grid .e-alt_row /*For Alternate row color*/ {
+            background-color: #E5E4E2; /*#99CFE3;*/
+        }
+    </style>
+
+    <style>
+        .e-grid .e-dialog .gridform .e-rowcell {
+            padding: .5em;
+            border-bottom: 1px solid #c8c8c8;
+            border-left: 1px solid #c8c8c8;
+        }
+
+        /*.e-grid .e-headercell {
+            color: whitesmoke;
+            background-color: darkred;
+            font-weight: 700;
+        }*/
+    </style>
+    <style>
+        .panel-default > .panel-heading {
+            background-color:black;
+            color: white;
+            font:xx-large;
+            font:900;
+            /*background-color:silver;*/
+            /*color: white;*/
+        }
+    </style>
+
+    <style type="text/css" class="cssStyles">
+        .control {
+            margin-left: 30px;
+        }
+
+        .ctrllabel {
+            padding-top: 15px;
+        }
+
+        .control {
+            margin-left: 20px;
+        }
+
+        .frame {
+            height: 250px;
+            width: 1000px;
+        }
+
+        .frame1 {
+            height: 240px;
+            width: 900px;
+        }
+
+        .txt {
+            display: block;
+            margin-bottom: 12px;
+        }
+    </style>
+
+    <style>
+      
+        .redLabels {
+            /*font-size: 24px;*/
+            background-color: white;
+            color: #ff0000;
+            vertical-align: top;
+            font-weight: bold;
+            /*width: 700px;*/
+        }
+
+        .myDiv {
+            font-size: 18px;
+            background-color: white;
+            color: orangered;
+            vertical-align: top;
+            text-align: left;
+            /*width: 700px;*/
+        }
+    </style>
+
+    <style>
+        .e-grid .e-dialog .gridform .e-rowcell {
+            padding: .5em;
+        }
+
+        .custom.e-js .e-header {
+            background: #5f0c98;
+        }
+
+        .custom.e-js .e-content {
+            background: #ddd;
+        }
+
+        .custom .e-rbn-button.e-btn.e-select {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .tabstyle {
+            background: #F9F9F9;
+            border-radius: 10px;
+            border: 1px solid #99CFE3;
+            display: block;
+        }
+
+        .longcolumns {
+            width: 600px !important;
+            margin: 0 auto !important;
+            position: relative !important;
+            border-right: 5px #666 outset !important;
+            border-left: 5px #666 outset !important;
+        }
+    </style>
+</body>
+</html>
+
+
+<script>
+    function create() {
+        //$("#" + this._id + "_search").append("Search");
+        $("#" + this._id + "_add").append("Add");
+        $("#" + this._id + "_edit").append("Edit");
+        $("#" + this._id + "_delete").append("Delete");
+        $("#" + this._id + "_update").append("Update");
+        $("#" + this._id + "_cancel").append("Cancel");
+        $("#" + this._id + "_printGrid").append("Print");
+    }
+</script>
+<script type="text/javascript">
+    jQuery(function ($) {
+        var menuObj = $("#mainMenu").ejMenu({ width: "100%", enableSeparator: false });
+    });
+
+</script>
+<style type="text/css" class="cssStyles">
+    #More, #Utilities, #Register, #Help, #ManageUsers, #Sign_In {
+        float: right;
+    }
+</style>
+
+<style type="text/css" class="cssStyles">
+
+    .Black-Menu .e-menu, .e-menu.e-horizontal .e-list > ul {
+        background: #080B00;
+        font-family: Cambria;
+    }
+
+        .Black-Menu .e-menu.e-horizontal .e-list > a {
+            color: white;
+            font-size: large;
+        }
+</style>
+
